@@ -2,7 +2,7 @@
 
 (To be edited/completed. I think it's usually better when an editor rather than the author writes the abstract, the author is too close to it. But if you want me to, I'll revise as a last step after article is final draft). 
 
-A comparison of available article searching services that offer APIs, evaluated for suitability in supporting a simple basic search scenario in a 'bento style' integrated interface.  Includes findings of an experimental study of user preferences, as well as a developer review of API functionality and ease of implementation.  The products evaluated are: Serial Solutions Summon, Ex Libris Primo, EBSCO EDS, EBSCOHost 'traditional' API, and Scopus.  Few statistically significant use preferences were detected.  
+A comparison of available article searching services that offer APIs, evaluated for suitability in supporting a simple basic search scenario in a 'bento style' integrated interface.  Includes findings of an experimental study of user preferences, as well as a developer review of API functionality and ease of implementation.  The products evaluated are: Serials Solutions Summon, Ex Libris Primo, EBSCO EDS, EBSCOHost 'traditional' API, and Scopus.  Few statistically significant use preferences were detected.  
 
 ## Background and Goals
 
@@ -45,7 +45,7 @@ Products included:
 
 * **Ex Libris Primo** (evaluation access)
 
-* **Serial Solutions Summon** (evaluation access)
+* **Serials Solutions Summon** (evaluation access)
 
 * **Scopus (Elsevier)** (usable with our existing licenses) (http://api.elsevier.com/content/search/#d0n17066)
 
@@ -987,7 +987,7 @@ SerialSolutions tells us that their default out-of-the-box Summon interface uses
   * However, items are not infrequently mis-classified, (eg, something classified as a "Journal Article" that is from a mass market publication nobody would consider a 'journal'). 
 * Straightforward response format, with sufficiently granular data elements to generate OpenURLs or export citations, and in general has what you'd expect it to have, in reasonable places. 
 * The best query-in-context search term highlighting of any product reviewed, with google-style highlighted snippets from fulltext, that works quite well.
-* An interesting 'direct link' feature which aims to provide a URL to send the user directly to institutionally-licensed fulltext for an item, avoiding the OpenURL resolver where possible. I believe supporting multiple content providers, not just those owned by Serial Solutions parent company. I did not investigate this, but if it works well it could be a very useful feature. In limited experimentation, it did sometimes succesfully link even to public-access pre-print copies on the web, which is a pretty neat feature. (Linking sources can be ranked and turned off in config).   
+* An interesting 'direct link' feature which aims to provide a URL to send the user directly to institutionally-licensed fulltext for an item, avoiding the OpenURL resolver where possible. I believe supporting multiple content providers, not just those owned by Serials Solutions parent company. I did not investigate this, but if it works well it could be a very useful feature. In limited experimentation, it did sometimes succesfully link even to public-access pre-print copies on the web, which is a pretty neat feature. (Linking sources can be ranked and turned off in config).   
 * A 'recommend a specific database' feature, to send users to specific native database interfaces for databases matched to their query. Did not investigate quality of results, but an interesting feature. 
 * Limits to local holdings and fulltext-available-only are based on the  SerialSolutions 360 knowledge base, which would be convenient if you are already using this vendor for other products requiring knowledge base configuration. 
 
