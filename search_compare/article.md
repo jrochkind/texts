@@ -196,7 +196,7 @@ We had an _optional_ area for participants to identify their affiliated Hopkins 
 
 <table>
 <tr><td>Other / Not Given</td><td> 167 <td>40%</td></tr>
-<tr><td>Krieger School of Arts & Sciences - KSAS</td><td>	125 <td>30%</td></tr>
+<tr><td>Krieger School of Arts & Sciences - KSAS</td><td> 125 <td>30%</td></tr>
 <tr><td>Whiting School of Engineering - WSE</td><td> 31 <td>7%</td></tr>
 <tr><td>School of Advanced International Studies - SAIS</td><td> 23 <td>5%</td></tr>
 <tr><td>Applied Physics Lab - APL</td><td>18<td>4%</td></tr>
@@ -1018,4 +1018,14 @@ Docs are on the web, public access, which is great.
 * http://api.summon.serialssolutions.com/help/api/search/fields
 * Useful 'console' app for debugging/exploring API in a browser window without having to deal with complex auth system manually:  http://api.summon.serialssolutions.com/help/api/search/example?s.q=query
 
+## Conclusion
 
+[i have no idea. Do I need one? I think I've said enough at this point!]
+
+## Acknowledgements
+
+Thanks to the various vendors who gave us trial access where needed, and technical support in all cases, to include their products in our evaluation. 
+
+Thanks to David Kennedy, Head of Systems, and Deborah Slingluff, Associate Director for Library Services and Collections, both at Johns Hopkins Milton S. Eisenhower Library, for recognizing the value of this study to our organization, and supporting it's undertaking. 
+
+Thanks to our local Article Search Study Committee for advising on study design and helping to market and promote the study. All mistakes are mine, however.  
