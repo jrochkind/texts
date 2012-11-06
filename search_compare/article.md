@@ -969,7 +969,7 @@ Decent documentation on the public web, but is occasionally out of date or lacki
 The Scopus API terms of service (under 'federated search' case at http://www.developers.elsevier.com/devcms/content-policies) are unusually limiting. 
 
 * Link back to Scopus is _required_ with presentation of results.  
-* Displaying abstracts or citation counts in interface is prohibited. Lack of abstracts is particularly problematic.
+* Displaying abstracts or references in interface is prohibited. Lack of abstracts is particularly problematic.
 
 ### Summon
 
