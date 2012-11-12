@@ -656,6 +656,9 @@ Valentina Artemieva at the Montgomery County Campus of Sheridan Libraries (Johns
 
 To the extent completeness of presentational context was valued, it could explain why Scopus did poorly. **Scopus is the only product which had no abstracts at all available**. (Scopus as a service certainly has abstracts, but their API does not provide them, and their terms of service for federated search in fact prohibit presenting them). It's possible this harmed Scopus in participant preferences, although I think it's probably also true that actual items in result set were a factor as well: In my own personal subjective evaluation, Scopus's coverage outside of the natural sciences is relatively poor, compared to the other products. (Scopus does aim to include the entire scholarly published universe these days, not just sciences; how well it succeeds is another question). 
 
+**Summon** has to my own judgement the most sophisticated google-like snippet-with-highlighted-search-terms feature, this could be a presentational
+feature that would lead to a preference. 
+
 **Ebsco 'traditional' API**, while it does provide abstracts, is the only other product in addition to Scopus that lacked 'query in context' bolded highlighting of search terms.  Interestingly, this does _not_ seem to have harmed Ebsco 'traditional' in participant preferences. 
 
 **Comparing EBSCO 'traditional' and EDS** is particularly interesting, as they are from the same vendor.  EBSCO traditional is essentially a subset of the EDS corpus -- EDS searches everything our EBSCO traditional API setup does, and more. They probably use similar 'relevance' rankings.  
