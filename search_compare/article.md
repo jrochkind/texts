@@ -625,6 +625,7 @@ If the findings in the Purdy study are generalizable, what this means for librar
 Librarians might possibly be more expert/capable at choosing the right queries to search and judging based on a few sample searches -- unfortunately, with only 64 preference selections from self-identified 'Library Staff', we don't think we have a large enough sample to look at the preferences of that demographic on their own.
 
 Despite these limitations (and those above in the 'Limitations' section), we can imagine there could surely be a product so bad that it would have had a significant negative preference. For an extreme example, we can imagine creating a 'product' which simply returned random citations from a list, unrelated to the query. Surely that would have performed poorly even this experiment.  
+(In retrospect, it may have been useful to include such a 'garbage' option in our study as a control!)
 
 **That few significant preferences were demonstrated in this study, can, I think** be taken as at least _some_ evidence that all products tested (with the possible exception of scopus) **perform 'well enough' for supporting basic search usage scenarios across our population served.**  
 
