@@ -750,7 +750,7 @@ Of the non-discovery solutions, Scopus was quite fast, pretty much as fast as Su
 
 All code used to do this experiment is open source and designed to be easily re-usable. Someone else -- if they could get access to all the products -- could do this experiment again to see if they get the same results, or change the configuration of the various products to see if that changes the results.  
 
-Although I'm interested in how configuration and limiting choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. 
+Although I'm interested in how configuration choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. 
 
 It might be somewhat more useful if you were able to limit the options considered to only two products, to make it easier to get a large enough sample size. 
 
