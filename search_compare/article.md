@@ -940,6 +940,8 @@ A fairly reasonably designed, full-featured API for the basic search functions y
 * Uses fielded and boolean search language equivalent to Scopus native interface, making sophisticated searches possible (whether or not you expose the complete syntax to the user; we did not). 
 * An incredibly full set of search indexes, letting you craft very precise queries. 
 * Does have sufficient granular citation metadata (volume, issue, start page, issn, etc) to build an OpenURL, or export a citation (except only first author). 
+* Returns a count of citations _to_ a result item known by Scopus, which is unique to this product, and could be useful
+in some scenarios. 
 
 #### Limitations or Issues
 
