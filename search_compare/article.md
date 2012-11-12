@@ -635,7 +635,7 @@ While few of the individual pairing results rose to the level of statistical sig
 
 **Scopus** 'lost' to every other product it was paired with -- and produces the only statistically significant pairings, losing to both EDS and Summon with statistical significance. 
 
-**EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with _every_ other product included!
+**EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with every other product included but for Summon. 
 
 Looking at the three 'discovery' products, they're fairly tightly clustered, although there are some trends. 
 
