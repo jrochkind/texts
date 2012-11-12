@@ -743,7 +743,7 @@ EDS was by far the slowest of the 'discovery' solutions, and while its median re
 
 Primo performed somewhere in between Summon and EDS. 
 
-Of the non-discovery solutions, Scopus was quite fast, pretty much as fast as Summon.  EBSCOHost traditional API's speed will depend on exactly what EBSCO databases you choose to include. However with the set of around 40 we chose to include, EBSCOHost traditional was surprisingly slightly faster than EDS, perhaps because it did not require the multi-request auth process. EBSCOHost still had some pathologically slow outlying responses however. 
+Of the non-discovery solutions, Scopus was quite fast, pretty much as fast as Summon, and with less variation in response times.  EBSCOHost traditional API's speed will depend on exactly what EBSCO databases you choose to include. However with the set of around 40 we chose to include, EBSCOHost traditional was surprisingly slightly faster than EDS, perhaps because it did not require the multi-request auth process. EBSCOHost still had some pathologically slow outlying responses however. 
 
 
 ## Further research directions?
