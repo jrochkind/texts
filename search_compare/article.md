@@ -598,7 +598,7 @@ We can look at a cross-tabulation of each individual possible pairing. Summon vs
           </tr>
 </table>
         
-As you can see, while 414 total responses seems like a good number, it results in a very small sample size for each pairing. For example, Summon was matched up against Primo only 44 times in which the user made a selection (rather than abandoning the window).  Of those 44 times, Summon was chosen 17 times, Primo 13 times, and 18 ties ("Can't Decide/About the Same").
+As you can see, while 414 total responses seems like a good number, it results in a very small sample size for each pairing. For example, Summon was matched up against Primo only 48 times in which the user made a selection (rather than abandoning the window).  Of those 48 times, Summon was chosen 17 times, Primo 13 times, and 18 ties ("Can't Decide/About the Same").
 
 How do we know if this is a significant indication of preference, or just random variation?  Again, we use the one-sample Z test with an alpha of 0.05, calculated for each pairing, with .5 as the null-hypothesis (no preference), and considering only active selections ("Can't Decide/About the Same" is not included in analysis). 
 
@@ -625,7 +625,6 @@ If the findings in the Purdy study are generalizable, what this means for librar
 Librarians might possibly be more expert/capable at choosing the right queries to search and judging based on a few sample searches -- unfortunately, with only 64 preference selections from self-identified 'Library Staff', we don't think we have a large enough sample to look at the preferences of that demographic on their own.
 
 Despite these limitations (and those above in the 'Limitations' section), we can imagine there could surely be a product so bad that it would have had a significant negative preference. For an extreme example, we can imagine creating a 'product' which simply returned random citations from a list, unrelated to the query. Surely that would have performed poorly even this experiment.  
-(In retrospect, it may have been useful to include such a 'garbage' option in our study as a control!)
 
 **That few significant preferences were demonstrated in this study, can, I think** be taken as at least _some_ evidence that all products tested (with the possible exception of scopus) **perform 'well enough' for supporting basic search usage scenarios across our population served.**  
 
@@ -635,7 +634,7 @@ While few of the individual pairing results rose to the level of statistical sig
 
 **Scopus** 'lost' to every other product it was paired with -- and produces the only statistically significant pairings, losing to both EDS and Summon with statistical significance. 
 
-**EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with every other product included but for Summon. 
+**EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with _every_ other product included!
 
 Looking at the three 'discovery' products, they're fairly tightly clustered, although there are some trends. 
 
@@ -656,9 +655,6 @@ We have no way of knowing what criteria any individual participant made in selec
 Valentina Artemieva at the Montgomery County Campus of Sheridan Libraries (Johns Hopkins Libraries) did in-person observed run-throughs of the experiment with 5 separate students (4 grad students, one undergrad). She specifically asked them to tell her why they chose the preference they did -- all five independently said that they decided based on preferring results with 'more information', such as including abstracts. We don't know for sure if this is representative -- but it could indicate that, at least for students, just about any set of reasonable results are 'good enough', and they focus on presentational issues. 
 
 To the extent completeness of presentational context was valued, it could explain why Scopus did poorly. **Scopus is the only product which had no abstracts at all available**. (Scopus as a service certainly has abstracts, but their API does not provide them, and their terms of service for federated search in fact prohibit presenting them). It's possible this harmed Scopus in participant preferences, although I think it's probably also true that actual items in result set were a factor as well: In my own personal subjective evaluation, Scopus's coverage outside of the natural sciences is relatively poor, compared to the other products. (Scopus does aim to include the entire scholarly published universe these days, not just sciences; how well it succeeds is another question). 
-
-**Summon** has to my own judgement the most sophisticated google-like snippet-with-highlighted-search-terms feature, this could be a presentational
-feature that would lead to a preference. 
 
 **Ebsco 'traditional' API**, while it does provide abstracts, is the only other product in addition to Scopus that lacked 'query in context' bolded highlighting of search terms.  Interestingly, this does _not_ seem to have harmed Ebsco 'traditional' in participant preferences. 
 
@@ -743,21 +739,21 @@ EDS was by far the slowest of the 'discovery' solutions, and while its median re
 
 Primo performed somewhere in between Summon and EDS. 
 
-Of the non-discovery solutions, Scopus was quite fast, pretty much as fast as Summon, and with less variation in response times.  EBSCOHost traditional API's speed will depend on exactly what EBSCO databases you choose to include. However with the set of around 40 we chose to include, EBSCOHost traditional was surprisingly slightly faster than EDS, perhaps because it did not require the multi-request auth process. EBSCOHost still had some pathologically slow outlying responses however. 
+Of the non-discovery solutions, Scopus was quite fast, pretty much as fast as Summon.  EBSCOHost traditional API's speed will depend on exactly what EBSCO databases you choose to include. However with the set of around 40 we chose to include, EBSCOHost traditional was surprisingly slightly faster than EDS, perhaps because it did not require the multi-request auth process. EBSCOHost still had some pathologically slow outlying responses however. 
 
 
 ## Further research directions?
 
 All code used to do this experiment is open source and designed to be easily re-usable. Someone else -- if they could get access to all the products -- could do this experiment again to see if they get the same results, or change the configuration of the various products to see if that changes the results.  
 
-Although I'm interested in how configuration choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. 
+Although I'm interested in how configuration and limiting choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. 
 
 It might be somewhat more useful if you were able to limit the options considered to only two products, to make it easier to get a large enough sample size. 
 
 Alternately, it might be useful to do a comparison _only_ with librarians participating -- it may be that patrons are just not able to predict their actual long-term preferences or benefits from an artificial experiment like this. As an example of a comparison using only subject-specialist librarians, see Bietila and Olson, "Designing an Evaluation Process
 for Resource Discovery Tools" in _Planning and Implementing Resource Discovery Tools in Academic Libraries_, IGI Global 2012. Or the slides from a NISO presentation by Bietila, available open access at: http://www.niso.org/news/events/2012/nisowebinars/discovery_and_delivery/
 
-Whether focusing on subject experts or not, whether in an experiment similar to this one or not, libraries will continue to have a need to evaluate and compare discovery and article search products. And often, especially if you plan to use product API's with your own UI, it will be beneficial to focus on search results rather than presentation -- to compare in a normalized presentation (whether blinded or not), rather than using vendors' native interfaces with very different UI's. I hope the `bento_search` rails gem may prove useful in allowing rapid development of testing or prototyping environments for such examinations. 
+Whether focusing on subject experts or not, whether in an experiment similar to this one or not, libraries will continue to have a need to evaluate and compare discovery and article search products. And often, especially if you plan to use product API's with your own UI, it will be beneficial to focus on search results rather than presentation -- to compare in a normalized presentation (whether blinded or not), rather than using vendors' native interfaces with very different UI's. I hope the `bento_search` rails gem may prove useful to people in allowing rapid development of testing or prototyping environments for such examinations. 
 
 Another option possible with the `bento_search` tool would be deploying multiple products in an actual production application, using an ["A/B Testing"](http://en.wikipedia.org/wiki/A/B_testing) approach to give provide different users with different search products, and tracking analytics to try and determine which product seemed more useful (say, which product resulted in more clicks on results). 
 
@@ -789,7 +785,7 @@ With API's that come bundled with licenses mostly used for native HTML app acces
 
 * For records where it's available, you can ask for complete fulltext as HTML in the response. This is a fairly unique and interesting feature, although I have no particular ideas of how I might use it. 
 * Peer-review limit is available, although it probably excludes lots of things that really are 'peer reviewed' but not annotated as such in EBSCO databases (not all databases may record this info). 
-* While some extremely limited 'facet'-like functionality is available from the "GetCluster" API call, when you are cross-searching multiple databases the facets are limited -- and in all cases, they don't actually have facet counts. Oddly, the EBSCO native interface provides much better faceting support, even when searching across the same multiple databases; the API faceting functionality is _not_ equal to the native interface. 
+* While extremely limiting 'facet'-like functionality is available from the "GetCluster" API call, when you are cross-searching multiple databases the facets are limited -- and in all cases, they don't actually have facet counts. Oddly, the EBSCO native interface provides much better faceting support, even when searching across the same multiple databases; the API faceting functionality is _not_ equal to the native interface. 
 * There is sufficiently granular citation metadata to create an OpenURL or export a citation, and it's rare that a record is missing proper data for these purposes (although it certainly happens). 
 * API response does easily tell you if full text is available for a particular record on the EBSCO platform for your institution's licensed entitlements (and if in PDF or just fulltext), and provides a link to pass the user on to the EBSCO platform record-level page. (Links directly to PDF take an additional per-record API call to retrieve, which is inconvenient).  
 * Abstracts are included. 
@@ -800,7 +796,7 @@ With API's that come bundled with licenses mostly used for native HTML app acces
 * If a database formerly available becomes unavailable (due to licensing or platform changes), and your API requests still ask to search it -- it's a fatal error and no response is returned, even from remaining available databases. 
 * The fact that you are cross-searching multiple databases can lead to some data normalization issues. 
   * Content Types are not particularly consistent across databases, making things, well, inconsistent, and hard to figure out type for say generating an OpenURL or exporting a citation.  
-* The query syntax is fairly undocumented. `one two three` is not the same thing as `one AND two AND three`.  Some changes to query parsing may be available by asking EBSCO support to enable a different mode on your profile, but not by self-editable field in admin interface. As I'm not sending raw user input to EBSCO, I just parse into something that I'm sure what it means to EBSCO (manual boolean AND's between all terms and phrases if desired), and it works out. 
+* The query syntax is fairly undocumented. <<one two three> is not the same thing as <<one AND two AND three>>.  Some changes to query parsing may be available by asking EBSCO support to enable a different mode on your profile, but not by self-editable field in admin interface. As I'm not sending raw user input to EBSCO, I just parse into something that I'm sure what it means to EBSCO (manual boolean AND's between all terms and phrases if desired), and it works out. 
   * Some kinds of query syntax errors (such as "a and and b") can result in a zero hit response, without an error message.  
 * While there is a language tag in output, it seems to quite frequently be empty or improperly set to "English" even for non-English articles. 
 * Relevancy ranking is decent, probably good enough, but can sometimes be slightly odd. A single phrase-quoted search on a title can result in the article matching that title exactly being 2 or 3 on result list instead of 1.
@@ -941,8 +937,6 @@ A fairly reasonably designed, full-featured API for the basic search functions y
 * Uses fielded and boolean search language equivalent to Scopus native interface, making sophisticated searches possible (whether or not you expose the complete syntax to the user; we did not). 
 * An incredibly full set of search indexes, letting you craft very precise queries. 
 * Does have sufficient granular citation metadata (volume, issue, start page, issn, etc) to build an OpenURL, or export a citation (except only first author). 
-* Returns a count of citations _to_ a result item known by Scopus, which is unique to this product, and could be useful
-in some scenarios. 
 
 #### Limitations or Issues
 
@@ -975,7 +969,7 @@ Decent documentation on the public web, but is occasionally out of date or lacki
 The Scopus API terms of service (under 'federated search' case at http://www.developers.elsevier.com/devcms/content-policies) are unusually limiting. 
 
 * Link back to Scopus is _required_ with presentation of results.  
-* Displaying abstracts or references in interface is prohibited. Lack of abstracts is particularly problematic.
+* Displaying abstracts or citation counts in interface is prohibited. Lack of abstracts is particularly problematic.
 
 ### Summon
 
