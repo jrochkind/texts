@@ -28,7 +28,7 @@ We wanted to find a way to apply a user-centered empirical investigation to this
 
 We decided to pursue this idea utilizing a ‘blinded’ survey instrument to evaluate the users perception of results from different services. An additional benefit of this approach is that the implementation of the blinded survey instrument required a developer to use the same techniques that would be used in implementing the potential final product. Therefore, this approach allowed for review of the quality and capabilities of the various product APIs, and also served as a 'proof of concept' of the 'bento style' approach with each product, developing some software building blocks that could be re-used for implementation of a final product. These advantages helped motivate our course of action. 
 
-Others before us have done article search or discovery comparisons where users were given pre-selected research questions, and/or results were evaluated for quality by librarians [3].  We wanted to try instead letting the users bring their own research questions and queries, and evaluate for themselves which tool they preferred.  We thought this might allow us to find out the actual preferences of users for their actual needs (something we were interested in), without having to figure out for ourselves if we had the right 'typical' research questions, or if we evaluated results the same way our patrons did. This was our goal and motivation, we'll see there is somewhat mixed evidence as to whether we succeeded.   
+Others before us have done article search or discovery product comparisons where users were given pre-selected research questions, and/or results were evaluated for quality by librarians [3].  We wanted to try instead letting the users bring their own research questions and queries, and evaluate for themselves which tool they preferred.  We thought this might allow us to find out the actual preferences of users for their actual needs (something we were interested in), without having to figure out for ourselves if we had the right 'typical' research questions, or if we evaluated results the same way our patrons did. This was our goal and motivation, we'll see that we had somewhat mixed success. 
 
 
 ## Products included in Study
@@ -57,7 +57,7 @@ Products initially considered but not included in study due to lack of fitness:
 
 * **Microsoft Academic Search**: While it does have an API, the [terms of service](http://social.microsoft.com/Forums/is/mas/thread/9a23b2d6-6599-4853-acf5-c1692a64365e) are prohibitive (including requirement to include all links delivered by the API, in the order they are delivered, even if they lead to paywalls you do not license). Additionally, while the MS Academic Search product itself includes sufficient metadata for an OpenURL (as revealed, for instance, in the RIS export), the API response does not actually include this data with sufficient semantic granularity. 
 
-* **Thomson Reuters Web of Knowledge**: While the product did seem to have a sufficient API (for instance as used by our existing Metalib installation), and we believed our existing license ought to give us access to this API -- we were unable to secure access/permission/documentation in time to include in the study, despite several months of attempts. Interestingly, at a later point in the midst of our study, we also noted that the vendor removed API access for an aggregate "Web of Knowledge" search, providing instead only individual sub-databases, which would not be suitable for our desired general article search use. 
+* **Thomson Reuters Web of Knowledge**: While the product did seem to have a sufficient API (for instance as used by our existing Metalib installation), and we believed our existing license ought to give us access to this API -- we were unable to secure access/permission/documentation in time to include in the study, despite several months of attempts.
 
 * Our existing **Metalib-based, Xerxes-enhanced product**, using its default/general search. Initially hoped to include this as a baseline/control, but writing the evaluation tool that could accommodate Metalib's extreme slowness would have significantly increased the development time, and we ultimately decided that we did not need it. 
 
@@ -202,7 +202,7 @@ We had an _optional_ area for participants to identify their affiliated Hopkins 
 <tr><td> Undergraduate Student</td><td>	26 </td><td>6%</td></tr>
 </table>
 
-There is not a sufficient sample size in any of the demographic groups to justify comparing results within individual demographic groups. 
+We decided that we lacked sufficient sample size in any of the demographic groups to justify comparing results between or within individual demographic groups. 
 
 ## Limitations
 
@@ -235,7 +235,7 @@ Looking through the queries used by participant, there seem to be very few 'know
 
 In summary, the study, largely, did not show significant preferences between products.  While this could be due to lack of sufficient sample size, there are reasons to think that is a valid result, at least under this experimental design. The rest of this section and the subsequent Interpretation section will explain how we arrived at this conclusion and what we think it means. 
 
-For those who would like to check our findings against the data or perform their own analysis on our data, our complete data set has been made available at: http://jhir.library.jhu.edu/handle/1774.2/36246
+Our complete data set from is publically available at: http://jhir.library.jhu.edu/handle/1774.2/36246 .  Others may want to analyze that data themselves, or check our findings against the actual dataset. 
 
 ### Somewhat Unruly Data Set
 
@@ -714,7 +714,7 @@ Of the non-discovery solutions, Scopus's’s response time was comparable to Sum
 
 All code used to do this experiment is open source and designed to be easily re-usable. Someone else -- if they could get access to all the products -- could do this experiment again to see if they get the same results, or change the configuration of the various products to see if that changes the results.  
 
-Although I'm interested in how configuration and limiting choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. It might be somewhat more useful if you were able to limit the options considered to only two products, to make it easier to get a large enough sample size. 
+Although I'm interested in how configuration and limiting choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. It might be somewhat more useful if you were able to limit the options considered to only two products, to increase the sample size of that single pairing with the same overall participation.   
 
 Alternately, it might be useful to do a comparison _only_ with librarians participating -- it may be that patrons are just not able to predict their actual long-term preferences or benefits from an artificial experiment like this. As an example of a comparison using only subject-specialist librarians, see Bietila and Olson, "Designing an Evaluation Process
 for Resource Discovery Tools" in _Planning and Implementing Resource Discovery Tools in Academic Libraries_, IGI Global 2012. Or the slides from a NISO presentation by Bietila, available open access at: http://www.niso.org/news/events/2012/nisowebinars/discovery_and_delivery/
@@ -731,7 +731,7 @@ One of the biggest barriers to do any kind of comparison between products is the
 
 ## Developer Review of Products
 
-Developers in the library sector know that library market vendor API quality can vary.  Often an API may look acceptable for your desired use cases from the marketing, documentation, or even an initial look at a live demo. But sometimes, when actually developing for your actual use cases, you can discover that an API is buggy, difficult to work with, or functionality incapable of your aims. 
+Developers in the library sector know that library market vendor API quality can vary.  Often an API may look acceptable for your desired use cases from the marketing, documentation, or even an initial look at a live demo. But sometimes, when actually developing for your actual use cases, you can discover that an API is buggy, difficult to work with, or functionally incapable of your aims. 
 
 The implementation of the blinded survey instrument required development of code against the product's APIs, and provided the opportunity to review those APIs for developer ease of use and functionality. The 'proof of concept' against the actual API's was perhaps equally as valuable as the study itself. 
 
@@ -797,10 +797,8 @@ Some notably useful pages:
 
 ### EDS
 
-The EDS API presented a number of challenges, chief of which, was dealing with authentication. While EDS is provided by the same vendor as the older more basic EBSCOHost 'traditional' API, EDS was in many ways more challenging to work with than EBSCOHost.  The EDS API does offer some of the 'discovery' functions missing from EBSCOHost traditional API, but it lacks the granular citation metadata found in the EBSCOHost Traditional API product.  
-
-
-In general, the API seems to be just barely/exactly enough to implement a near identical clone to the out-of-the-box EDS interface (and not even this without some difficulty). 
+The EDS API presented a number of challenges, chief of which was dealing with authentication. While EDS is provided by the same vendor as the older more basic EBSCOHost 'traditional' API, EDS was in many ways more challenging to work with than EBSCOHost.  The EDS API does offer some of the 'discovery' functions missing from EBSCOHost traditional API, but it lacks the granular citation metadata found in the EBSCOHost Traditional API product.  
+ 
 
 #### Notable features
 
@@ -852,7 +850,7 @@ Documentation is quite limited, and behind a customers-only login, so not findab
 
 ### Primo
 
-A decent if not great API, which allows you to do what's needed, but getting per-record metadata from the response format can be very confusing and under-documented (but extensive metadata is usually present). 
+A decent API, which allows you to do what's needed. Getting per-record metadata from the response format can be very confusing and under-documented, although on the plus side extensive metadata is usually present. 
 
 #### Notable features
 
@@ -869,7 +867,7 @@ A decent if not great API, which allows you to do what's needed, but getting per
 
 #### Limitations or Issues
 
-* Individual record response elements have many sections with similar data presented in different ways, without much documentation of the different response elements.  This makes it difficult to determine which response element will provide the best, most consistent data for a given use. These varying presentations of certain elements may well powerfully support complex use cases, but lack of documentation is a barrier to making such use.  
+* Individual record response elements have many sections with similar data presented in different ways, without much documentation of the different response elements.  This makes it difficult to determine which response element will provide the best, most consistent data for a given use. These varying presentations of certain elements may in fact be powerful support for complex use cases, but lack of documentation is a barrier to making such use.  
 * Error messages are sometimes XML and other times HTTP status codes with HTML response bodies.  Expected error response specifications not documented. 
 * During the survey, we ran into at least one strange edge case bug, searching for a long phrase with a question mark in it resulted in strange error message. Possibly due to undocumented escape requirements of query input?
 * Multiple format/genre vocabularies are used in responses, but there is inadequate documentation defining expected values or semantics. 
