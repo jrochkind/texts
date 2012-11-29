@@ -6,11 +6,11 @@ A comparison of available article searching services that offer APIs, evaluated 
 
 ## Background and Goals
 
-At Johns Hopkins Libraries, we decided to explore creating a better article search experience for our users, in particular one well-integrated with our existing website/web presence, and one targeted at a fairly basic/simple usage pattern. The motivation for this came out of observation and evidence or our user’s needs and complaints with our current offerings, as well as reports from other academic libraries. 
+At Johns Hopkins Libraries, we decided to explore the creation of an improved, more integrated article search experience for our users. The motivation for this work was driven by negative user feedback from our current offerings, staff observation, and reports by other academic libraries investigating patron article search behavior and preferences. 
 
-In initial exploration of what this might mean, we naturally considered the relatively new generation "discovery" products in the library market, such as SerialSolutions Summon, Ex Libris Primo, EBSCO Discovery Service (EDS), and (to some extent) OCLC WorldCat Local. All of these products include their own extensive index of articles and scholarly citations, as well as being marketed as a potential public catalog interface (with integrated article search). 
+We naturally considered the relatively new generation "discovery" products in the library market, such as SerialSolutions Summon, Ex Libris Primo, EBSCO Discovery Service (EDS), and (to some extent) OCLC WorldCat Local. All of these products include their own extensive index of articles and scholarly citations, as well as being marketed as a potential public catalog interface (with integrated article search). 
 
-But rather than assume a complete replacement of our catalog discovery with such a product (after all, our goal was to improve article discovery, and there are benefits to avoiding changing our entire discovery infrastructure if possible) we considered the approach taken by some of our peer institutions to use custom designed software that provided catalog search and article search in separate sections of the result page, a layout that's been called "bento style" (for its visual resemblance to Japanese bento lunchboxes) by library technologist Tito Sierra.  
+But rather than assume a complete replacement of our catalog discovery with such a product we considered the approach taken by some of our peer institutions using custom designed software that provided catalog search and article search in separate sections of the result page, a layout that's been called "bento style" (for its visual resemblance to Japanese bento lunchboxes) by library technologist Tito Sierra.  
 
 Examples include:
 
@@ -20,24 +20,24 @@ Examples include:
 
 We decided that a bento-style search was worth serious consideration: leaving catalog search powered by our existing infrastructure, but adding an article search section powered by a yet-to-be-determined third party service. 
 
-Additional details about the reasoning and evidence that led to this direction of pursuit, including local evidence and citations to findings from other peer institutions, can be found in a position paper on the author's blog, at: http://bibwild.wordpress.com/2012/10/02/article-search-improvement-strategy/
+Additional details about the reasoning and evidence that led to this direction of pursuit, including local evidence and citations to findings from other peer institutions, can be found in a position paper on the author's blog [1].
 
-So the question arose of how to evaluate which third-party service to use to power the integrated 'article search'. And with a focus on article search presented in a bento-style interface, we realized that some traditional Abstracting & Indexing services might be worth considering too, in addition to more recently introduced 'discovery' products.  
+The question arose as to how to evaluate available third-party services that might be used to power an integrated 'article search' feature. Focusing on article search presented in a bento-style interface, we also realized that some traditional Abstracting & Indexing services might also be worth considering, in addition to more recently introduced 'discovery' products.  
 
-Thinking about possible ways to investigate this in an empirical and user-centered manner, I realized that the same capabilities that would allow one to embed an article search in a local applications bento-style interface (essentially, a sufficiently powerful API), would also allow us to create a 'blinded' survey instrument, where we displayed results from two different search and asked the participating users to tell us which they liked better.  (Only after our study was well underway did we notice that Microsoft is promoting a very similarly designed side-by-side comparison for Bing marketting purposes: http://www.bingiton.com ). 
+We wanted to find a way to apply a user-centered empirical investigation to this evaluation. I realized that the same capabilities that would allow one to embed an article search in a local applications bento-style interface (essentially, a sufficiently powerful API), would also allow us to create a 'blinded' survey instrument, where we displayed results from two different search and asked the participating users to tell us which they liked better.[2] 
 
-We decided to pursue this idea of an empirical study of user preferences in this manner. An additional benefit of this approach is that the implementation of the blinded survey instrument required the developer to use the same techniques that would be used in implementing 'bento style' search. This allowed developer review of the quality and capabilities of the various product APIs, and served as a 'proof of concept' of the 'bento style' approach with each product. These benefits were very significant in our choice to proceed with the research along these lines, in addition to actual research results.  
+We decided to pursue this idea utilizing a ‘blinded’ survey instrument to evaluate the users perception of results from different services. An additional benefit of this approach is that the implementation of the blinded survey instrument required a developer to use the same techniques that would be used in implementing the potential final product. Therefore, this approach allowed for review of the quality and capabilities of the various product APIs, and also served as a 'proof of concept' of the 'bento style' approach with each product, developing some software building blocks that could be re-used for implementation of a final product. These advantages helped motivate our course of action. 
 
-Furthermore, a significant portion of the software code used to implement the research instrument can be re-used for implementation of an eventual 'bento style' interface, if we decide to proceed.  
+Others before us have done article search or discovery comparisons where users were given pre-selected research questions, and/or results were evaluated for quality by librarians [3].  We wanted to try instead letting the users bring their own research questions and queries, and evaluate for themselves which tool they preferred.  We thought this might allow us to find out the actual preferences of users for their actual needs (something we were interested in), without having to figure out for ourselves if we had the right 'typical' research questions, or if we evaluated results the same way our patrons did. This was our goal and motivation, we'll see there is somewhat mixed evidence as to whether we succeeded.   
 
 
 ## Products included in Study
 
-In order to be included in our blinded study, a product needed to have a sufficient API to be used that way -- essentially the same API features it would need to be used in 'bento style' implementation. 
+In order to be included in our blinded study, a product needed to have a sufficient API for the blinded instrument, which are also essentially the same features as a 'bento style' implementation.  
 
-Also, while we decided, for purposes of the study instrument, not to include links from articles to full text -- for ultimate inclusion in a 'bento style' interface, we need a way to link to full text and to our link resolver. While some API's provide their own full text links, we also require the API response to have sufficient metadata to create an OpenURL for integrating with our existing infrastructure. 
+While we decided for purposes of the study instrument not to include links from articles to full text, a production implementation would need a way to link to full text and/or to a local link resolver. We decided to only include services in our evaluation that could support such linking. 
 
-Products included:
+Products included in evaluation:
 
 * **EBSCO Discovery Service** (evaluation access)
 
@@ -49,7 +49,7 @@ Products included:
 
 * **Scopus (Elsevier)** (usable with our existing licenses) (http://api.elsevier.com/content/search/#d0n17066)
 
-In general, securing access to these products and their documentation -- both ones we needed trial access to as well as, sometimes surprisingly, products we already licensed -- was a very time-consuming process, in calendar-time even more time consuming than implementation. 
+Securing access to these products and their documentation -- both ones we needed trial access to as well as products we already licensed -- was a time-consuming process, and comprised a significant portion of the total calendar time to complete our evaluation. 
 
 Products initially considered but not included in study due to lack of fitness:
 
@@ -63,43 +63,29 @@ Products initially considered but not included in study due to lack of fitness:
 
 ## The survey instrument
 
-Users could enter whatever query they wanted, and be presented with side-by-side 'blinded' results from two products (chosen at random for each presentation from the 5 under study). They could choose which they preferred, or choose "Can't Decide/About the Same".  
-
-A screenshot suffices to explain the instrument:
-
+Users would enter a query and be presented with side-by-side 'blinded' results from two products chosen at random from the five services being studied.  The participating user could choose which results they preferred, or select a neutral choice of "Can't Decide/About the Same".  
 
 <img src="https://blacklight.library.jhu.edu/screenshot-medium.jpg"/>
 
 ## Technological Implementation
 
-The survey instrument is implemented as two ruby on rails projects, both licensed open source. 
+The survey instrument was implemented as two Ruby on Rails projects, both licensed open source. 
 
-The first, [bento_search](http://github.com/jrochkind/bento_search) is a general purpose abstract layer for querying third party search engines. It is designed to: 
+The first, [bento_search](http://github.com/jrochkind/bento_search) [4] is a general purpose abstract layer for querying third party search engines. It is designed to: 
 
 * Let you quickly get implement search functionality in your own custom application, for any of its supported adapters; 
 * have a potentially shared implementation of working around the gotchas and undocumented features of certain search services; 
 * and let you switch out one service for another in an existing application with as little trouble as possible (avoid lock-in).
 
-bento_search currently supports adapters for: 
-* Primo
-* Summon
-* EDS
-* EBSCOHost traditional API
-* Scopus
-* Google Books
-* WorldCat
-* Google Site Search. 
+bento_search currently supports adapters for the five evaluated services, plus adaptors for Google Books, WorldCat and Google Site Search.
 
-As mentioned, one of the motivations of undertaking this particular research was that the code required to write the survey instrument would largely be repurposable for an actual production application; bento_search was designed to support both this study instrument, and production applications. bento_search supports fielded search entry, pagination, and sorting in an abstract standardized way, but does not yet support multi-field/advanced search or facets/limits. bento_search also supports a standardized rendering/display of search results, across search providers -- just what we need for our experimental survey instrument. 
+One of the motivations of undertaking this particular research was that the code required to write the survey instrument could largely be repurposed for an actual production application; the bento_search gem was designed from the start to support both use cases. The bento_search gem supports fielded search entry, pagination, and sorting in an abstract standardized way, but does not yet support multi-field/advanced search or facets/limits. bento_search also supports a standardized rendering/display of search results, across search providers -- a necessity for the survey instrument. 
 
-The survey instrument itself is a Rails application called [bento_battle](http://github.com/jrochkind/bento_battle), also available as open source.   bento_battle, built with bento_search functionality, is only a few hundred lines of generously commented/whitespaced ruby (depending on, and ~200 lines of ERB templates. I think this demonstrates the power of the bento_search gem in letting you quickly and easily implement search functionality in your app. 
+The survey instrument itself is a Rails application called [bento_battle](http://github.com/jrochkind/bento_battle), also available as open source.   bento_battle, built with bento_search functionality, is only a few hundred lines of generously commented/whitespaced ruby. 
 
 We think it's important that the complete implementation of our experimental instrument is available, both so people can see _exactly_ how the experiment was conducted, and so people can use our implementation to re-run the experiment, either identically or with changes, to investigate reproducibility of our findings.  
 
-The exact version of the bento_battle application used for the experiment is tagged at [jhu-study-10Sep2012](https://github.com/jrochkind/bento_battle/tree/jhu-study-10Sep2012). Mid-way through the study, a new version was deployed with some bugfixes and enhanced reporting features, at [jhu-study-17Sep2012](https://github.com/jrochkind/bento_battle/tree/jhu-study-17Sep2012). The nature of a ruby application using bundler means that the exact version of all gem dependencies, including the bento_search gem, is recorded and fixed in these tagged snapshots. 
-
-This software was developed over approximately 4 months, by one developer (the author) working a 32-hour-a-week schedule. However, it's hard to say exactly how many person-hours were spent on development, as the developer was responsible for other work during this period as well, and there were many roadblocks waiting for access to products to be granted by vendor.
-
+The exact version of the bento_battle application used for the experiment is tagged at [jhu-study-10Sep2012](https://github.com/jrochkind/bento_battle/tree/jhu-study-10Sep2012) [5].  Mid-way through the study, a new version was deployed with some bugfixes and enhanced reporting features, at [jhu-study-17Sep2012](https://github.com/jrochkind/bento_battle/tree/jhu-study-17Sep2012) [6]. The nature of a ruby application using bundler means that the exact version of all gem dependencies, including the bento_search gem, is recorded and fixed in these tagged snapshots. 
 
 ## Per-product configuration and implementation choices
 
@@ -107,29 +93,27 @@ There are some inevitable choices to be made in both configuring how to search a
  
 ### Display
 
-Our standard template shows an abstract or other summary where available. If the product supported showing a query-in-context summary with highlighted search terms, this was used _instead_ of a straight abstract. Summon supports a Google-style query-in-context snippet from fulltext, where available -- this was used in display in preference over straight abstract.  
+Our standard template shows an abstract or other summary where available. If the product supported showing a query-in-context summary with highlighted search terms, this was used _instead_ of a straight abstract. Summon supports a Google-style query-in-context snippet from fulltext, where available -- this was used in display in preference over straight abstract.  Primo and EDS both supply only abstracts, but do query term highlighting within the abstract -- this capability was used in the survey instrument in these cases. All three products do query-term highlighting in the item title, and this too was used in the survey instrument's output.  EBSCOHost offered only a straight abstract, so this was used for EBSCOHost output. In all cases, abstracts/snippets were truncated to just the first few lines. 
 
-Primo and EDS both supply only abstracts, but do query term highlighting within the abstract -- this was used, with highlighted terms emphasized with bold in our html output.   All three products do query-term highlighting in the item title, this was used, and presented in our own output.  EBSCO offers only a straight abstract, so this was used. In all cases, abstracts/snippets were truncated to just the first few lines. 
-
-We decided, for purposes of this test, _not_ to make any active hyperlinks from search result items to (attempted) fulltext, link resolver, or expanded metadata pages.  
+For purposes of the survey instrument and study, we decided _not_ to provide any links from presented search results to fulltext or additional information, instead only presenting side by side results with no links to click on. 
 
 ### Search Input
 
-In order to provide a standard query input syntax across all search products, the `bento_search` library discussed below supports a normalized standard input format across all products: Basically a simple 'google style' input, that supports a simple list of terms and phrases (using double-quotes to indicate phrases), but does not support boolean operators or expressions. 
+In order to provide a standard query input syntax across all search products, the `bento_search` library discussed above supports a normalized standard input format across all products: Basically a simple 'google style' input, that supports a simple list of terms and phrases (using double-quotes to indicate phrases). bento_search translates this to the most appropriate query the developer could determine for each product, to find results matching that list of terms and phrases with appropriate relevancy ranking. 
 
-Where possible, this input was passed as-is to the search product API -- in these cases (for instance Summon), the end result product may or may not require all terms as 'mandatory', we leave it up to the individual product's algorithm. 
+For instance, in the case of EBSCOHost, bento_search translates the user's input to an explicit boolean 'AND' expression; in the case of Summon, bento_search passes the user's input through to Summon more or less unmodified. 
 
-However, in many cases it was necessary for the `bento_search` code to do a simple parsing step, and translate the user-entered query into the (often under-documented) input query expected by the product API. In most of these cases (for instance EBSCOHost 'traditional'), the user's input would be translated to a straight boolean 'AND' expression, where all entered terms are mandatory. 
+The bento_search gem does not presently support standardized boolean operators or expressions. 
+
 
 ### Holdings Limiting -- Not Used
 
 The three 'discovery' tools (Primo, Summon, EDS) all have features were you can limit search results to 'items held by your institution' -- sometimes this means electronic fulltext access, sometimes it includes print holdings.  In order to do this, you of course need to communicate your holdings to the service in some way. 
 
-We weren't sure if our users would _want_ a 'limit to holdings' or not for the simple default search use case.  Additionally, it would have taken significant additional setup time to synchronize our holdings with all the products, and introduce an additional factor for variation (what if our holdings had not been _accurately_ set in the service, and that effected results?). 
+Configuring our holdings with each such product would have taken additional setup time, and introduced additional point for mistakes to be made and inconsistencies introduced. We also weren't certain whether we (or our users) would want the ultimate production tool we were considering to default to such a holdings limit, or to instead return unrestricted results. 
 
-Considering overall cost vs. benefit to run this study, (we chose _not_ to make use of any 'limit to holdings' in our tests -- all searches were unlimited as to institutional holdings. 
+Considering overall cost vs. benefit to run this study, we chose _not_ to make use of any 'limit to holdings' in our tests -- all searches were unlimited as to institutional holdings. 
 
-It is, of course, possible that doing otherwise would have resulted in different results, either differentiating between products based on their ability to successfully limit to our holdings (again contingent on our ability to successfully set our holdings in the service), or differentiation the 'discovery' products that support this feature from the 'traditional' services which do not.  
 
 ### Authorized user
 
@@ -141,19 +125,15 @@ As our test instrument authenticated users before allowing any access, all produ
 
 We noted that many peer institutions implementing a discovery service supply a default pre-set limit to exclude Newspaper Articles, or to focus exclusively on Journal Articles -- they had found that non-scholarly content in the results was negatively impacting their quality and service. 
 
-When comparing two products, this could have an even more devious effect. Imagine that presence of newspaper articles in the result set would cause a participant to prefer those results less. Now imagine two products are pitted against each other -- one that simply doesn't include any/many newspaper articles in its corpus, and another that does, but where they could be excluded by a limit.  The product with no newspaper articles would 'win', when really the playing field could be equalized simply by choosing to exclude them. 
+This could have an even more devious effect on a study like this, if left uncontrolled. If users did prefer not to have newspaper articles in their result set, and rated one product poorly for including such results, when that product _could_ have been configured to exclude them, this would be to some extent a misleading result.  
 
-Additionally, our choice _not_ to apply "limit to holdings" functionality has implications here too. Without 'limit to holdings', one gets all sorts of weird results cluttering up the result list that users are unlikely to ever want (but wouldn't get if 'limit to holdings' was in play), such as odd selected web pages and television program transcripts. I suspect most of the discovery tools have been designed, developed, and tested assuming that 'limit to holdings' will be in effect. 
+Our choice not to limit to local holdings also resulted in many types of content being included in results that seemed of questionable utility (such as television transcripts and web page text), but which would have ended up excluded by a local holdings limit. I suspect several products have been optimized by their vendors for 'limit to local holdings' use.  Adding some compensatory configuration to exclude these odd content types, where possible, seemed neccesary to show each product at it's best. 
 
-And finally, we remember our goal here was specifically to help identify a good solution for a basic, simple, article search (or 'scholarly citation' search more generally). 
+We also remembered that our original goal was to analyze these products for a basic, simple, article and scholarly citation search -- not neccesarily for use cases involving other types of content.  
 
-All these considerations led us to configure the searching for each product to try to exclude non-scholarly citations and focus on articles. We chose not to limit only to 'journal articles', but instead to exclude certain product-specific categories that seemed to create 'noise' in the result set. Largely because we did want to continue including items that may not have been classed as 'journal articles', but were legitimate scholarly citations a user might want, such as a white paper or book review.
+All these considerations led us to configure the searching for each product to try to exclude non-scholarly citations and focus on articles. Where possible, we chose not to limit only to 'journal articles', but instead to exclude certain product-specific categories that seemed to create 'noise' in the result set, as this generally seemed to produce optimal results.
 
-In Summon, Primo, and EDS, limits were applied at time of search excluding such categories, using the available product-specific controlled vocabularies for content type. Mainly we tried to exclude newspaper articles, and popular/trade press articles in general) and web pages -- as well as audio/visual material, ebooks, and book chapters.  
-
-Some of these choices in retrospect seem potentially questionable in their effect on our results. Nonetheless, we thought choices had to be made, even if they might be the wrong ones -- the experiment can always be run again (by us or someone else) if there is reason to be interested in whether different choices can produce different results. 
-
-EBSCO and Scopus both provide no good way to limit on content type, but EBSCO and Scopus both mostly only include articles and 'scholarly citations', with much more focused coverage than the 'discovery' products, so this was not a problem. 
+While these configuration choices, specific to each product, were subjective and might influence study results, we still decided they were neccesary to present each product at its best to study participants.   
 
 Exact configuration choices made can generally be deduced from the [configuration file in the git repository for the test instrument](https://github.com/jrochkind/bento_battle/blob/jhu-study-10Sep2012/config/initializers/bento_search.rb).
 
@@ -161,7 +141,7 @@ Exact configuration choices made can generally be deduced from the [configuratio
 
 The EBSCOHost 'traditional' API allows you to search from 1 to all of your existing licensed EBSCO databases simultaneously, returning a single merged result set. We license nearly 100 EBSCO databases (although some of them are strict subsets of others).  Trying to search all of our databases at once through this API resulted in unacceptable performance. 
 
-We looked at our usage logs for EBSCO, and took the top-most used databases. We then adjusted the list a bit by hand to broaden disciplinary coverage as far as we could within our EBSCO licenses, and to remove databases focused on formats we weren't interested in (image databases, or video databases).  The 'EBSCOHost traditional' option was configured to search the resulting list of approximately 40 databases. The exact list of databases used can be seen in the [git repository for the bento_battle instrument implementation code](https://github.com/jrochkind/bento_battle/blob/jhu-study-10Sep2012/config/ebsco_dbs.rb). 
+We looked at our usage logs for EBSCO, and took the top-most used databases. We then adjusted the list a bit by hand to broaden disciplinary coverage as far as we could within our EBSCO licenses, and to remove databases focused on formats we weren't interested in (image databases, or video databases).  The 'EBSCOHost traditional' option was configured to search the resulting list of approximately 40 databases. The exact list of databases used can be seen in the [git repository for the bento_battle instrument implementation code](https://github.com/jrochkind/bento_battle/blob/jhu-study-10Sep2012/config/ebsco_dbs.rb) [7]. 
 
 
 
@@ -180,17 +160,17 @@ Promotion was via:
 * At the Eisenhower library, placards were placed next to reference/information desk stations with the URL, for staff to participate in any free time. 
 * Other JH Libraries may have publicized to their patrons in various ways. 
 
-During the period the study was up, we received **414 total selections of preference**. While this may seem like a lot, the fact that we were including 5 total products makes it really barely enough -- with 414 total selections, any given pairing of products (say, Primo vs. Summon) was included in the result set on average only 41 times (and some of those were 'ties').
+During the period the study was up, we received **414 total preference responses**.  This is not as large a sample as it might initially sound, as with 5 total products and 414 total responses, any given pairing of products (say Primo vs. Summon) were only matched on average 41 times each. 
 
 We don't know how many unique people participated, for instance, 40 people doing 10 choices each, or 400 people doing one choice each. We also don't know which participation events came from which promotion venue. 
 
-In addition to the 414 registered selections, there were another 214 occasions a user loaded the evaluation tool results page, but abandoned it without making any selection at all. So about 1/3rd of the time an evaluation page was displayed, user abandoned without a selection. (Some minority of these were  developers checking to ensure the tool was functioning properly). 
+In addition to the 414 registered selections, there were another 214 occasions a user loaded the evaluation tool results page, but abandoned it without making any selection at all. So about 1/3rd of the time an evaluation page was displayed, user abandoned without a selection. 
 
-It was, overall, more challenging to get participation than we expected. 
+It was somewhat more challenging to attract participation than we expected. 
 
 ### Demographics
 
-We had an _optional_ area for participants to identify their affiliated Hopkins school/institution, and their role/status.  As this was optional, many participants chose not to fill it in. However, in retrospect it still seems the right choice to have made it optional, so as not to reduce responses yet further. 
+We had an _optional_ area for participants to identify their affiliated Hopkins school/institution, and their role/status.  As this was optional, many participants chose not to fill it in. In retrospect we still think making demographics optional was the right design choice, to maximize participation. 
 
 ### INSTITUTION
 
@@ -210,8 +190,6 @@ We had an _optional_ area for participants to identify their affiliated Hopkins 
 <tr><td>School of Nursing - SoN</td><td> 1 <td>0%</td></tr> 
 </table> 
 
-It's a bit disappointing we weren't able to get more non-Homewood campus participation, but I'm not sure what we could have done differently. We of course don't know the affiliations of those who chose not to reveal them ("Other / Not Given"). 
-
 
 ### STATUS
 
@@ -224,57 +202,46 @@ It's a bit disappointing we weren't able to get more non-Homewood campus partici
 <tr><td> Undergraduate Student</td><td>	26 </td><td>6%</td></tr>
 </table>
 
-There is not a sufficient sample size in any of the demographic groups to justify comparing results within individual demographic groups. I am not certain if a significant portion of the self-reported "Graduate Student" respondents may actually by Information Desk workers at the library (we hire graduate students to staff the Information Desk). 
+There is not a sufficient sample size in any of the demographic groups to justify comparing results within individual demographic groups. 
 
 ## Limitations
 
-Any experimental design has limitations: both things not being studied, and potential limitations in the validity of what is being studied. It is important to understand the limitations of our experimental design before we move on to looking at our findings. 
+Any experimental design has limitations: both things not being studied and potential limitations in the validity of what is being studied. It is important to understand the limitations of our experimental design before we move on to looking at our findings. 
 
-* We are only evaluating the search function. Some of these products come with other functions or features that may be of use, not being evaluated here. 
+* We only evaluated the article search function. Some of these products come with other functions or features that may be of use, but are not being evaluated here. 
 
-* In particular, we are only evaluating _article search_ (and to some extent by extension scholarly citation search in general). Many of these tools allow searching for ebooks, local institutional content, and other content. We intentionally configured the tools, and directed our participants, to focus on article search. 
-
-* We are only evaluating a basic, simple style of article search, a usage pattern where a user will enter some search terms and look at the first page of results. Not included was advanced/fielded searching, faceting, looking past the first page of results, etc.  Some products may very well do some of these things better than others, our experimental design did not attempt to explore this. 
+* Evaluation was limited to a basic, simple style of article search; a usage pattern where a user enters some search terms and looks at the first page of results. Our study did not include or evaluate advanced/fielded searching, faceting, looking past the first page of results, etc.  Some products may do some of these things better than others, our experimental design did not attempt to explore this. 
 
 * Our experimental design only reveals _relative preferences_. If two providers are pitted against each other 100 times, and one tool is selected as better 90 times -- it's quite possible that users considered both providers great, _or_ considered both providers awful. We have no way to distinguish. Our experimental design only tells us they liked one better than the other, only a relative preference between the two. 
 
-* Our experimental design only measures _consistency_ of relative preference, not _strength_.  If two providers are pitted against each other 100 times, and one tool is selected as better 90 times, this means our participant population _very consistently_ preferred that tool -- it does not tell us if they thought it was a _lot_ better, or just a _tiny bit_ better, or different participants had different evaluations. Our design reveals consistency of preference, not strength of preference. 
+* Our experimental design only measures _consistency_ of relative preference, not _strength_.  If two providers are pitted against each other 100 times, and one tool is selected as better 90 times, this means our participant population _very consistently_ preferred that tool -- it does not tell us if they thought it was a _lot_ better, or just a _tiny bit_ better. Our design reveals consistency of preference, not strength of preference. 
 
-* If sub-populations had different preferences -- say scientists prefer one tool but humanists another -- we wouldn't know, it would average out in the overall results. If we had sufficient participation, we might be able to look at differences between sub-populations, but we did not. Although it would be nice to know differences in sub-group preferences (if any), our end goal is choosing a single tool to provide a basic search to all patrons.
 
-* We do not know _why_ participants preferred one tool to another, or if different participants had different reasons at different times. Although it would be nice to know what more details about users want in a search tool, ways other than this study can provide some information. Our goal is to move forward with a product like the ones tested, we don't have the option of taking one feature from one product and mixing it with a different feature from a different product. 
+* We do not know _why_ participants preferred one tool to another, or if different participants had different reasons at different times. Although it would be nice to know more details about what users want in a search tool, answering this question was not a goal of this research. 
 
 A good experimental design tries to control as much as possible, and isolates a very specific phenomenon to be studied. We tried to do this, focusing on the usage pattern/style we were prioritizing:  User preferences between products, for a basic, simple, article search functionality.   
 
-We think this was the right thing to focus on; in the end, we can choose one of these products (or not) to implement, it matters to us if users prefer one to another, and that's what we tried to measure. 
-
 However, there are also some limitations to the validity of even what we tried to measure:
 
-* Participants, in the artificial environment of our experiment, may not express preferences that match what their real world preferences would be. 
+Participants, in the artificial environment of our experiment, may not express preferences that match what their real world preferences would be. 
 
-When I myself was experimenting with the evaluation tool, I found that if I just entered a hypothetical query, I really had no way to evaluate the results. I needed to enter a query that was an _actual research question_ I had, where I actually wanted answers. Then I was able to know which set of results was better.  
+When I myself was experimenting with the evaluation tool, I found that if I just entered a hypothetical query, I really had no way to evaluate the results. I needed to enter a query that was an _actual research question_ I had, where I actually wanted answers. Then I was able to know which set of results was better. (This issue does not apply to known-item searches, where either the item you are looking for is there at the top of the list, or it isn't). 
 
-(This is less of an issue for known-item searches, where either the item you are looking for is there at the top of the list, or it isn't). 
+However, when observing others using the evaluation tool, I observed many entering just the sort of hypothetical sample queries that I think are hard to actually evaluate realistically. We tried to include links from existing tools to find articles, to capture participants in the middle of the research process with actual queries -- but we did not track what portion of participation came via these avenues. 
 
-However, when observing others using the evolution tool, I observed many entering just the sort of hypothetical sample queries that I think are hard to actually evaluate realistically. We tried to include links from existing tools to find articles, to capture participants in the middle of the research process with actual queries -- but we did not track what portion of participation came via these avenues. 
-
-* Looking through the queries used by participant, there seem to be very few 'known item' searches (known title/author), even though we know from user feedback users want to do such searches. So the study may not adequately cover this use case. 
-
-Every experimental design has limitations, we still think this was a potentially useful foray which might tell us something. 
+Looking through the queries used by participant, there seem to be very few 'known item' searches (known title/author), even though we know from user feedback users want to do such searches. So the study may not adequately cover this use case. 
 
 ## Findings
 
 In summary, the study, largely, did not show significant preferences between products.  While this could be due to lack of sufficient sample size, there are reasons to think that is a valid result, at least under this experimental design. The rest of this section and the subsequent Interpretation section will explain how we arrived at this conclusion and what we think it means. 
 
+For those who would like to check our findings against the data or perform their own analysis on our data, our complete data set has been made available at: http://jhir.library.jhu.edu/handle/1774.2/36246
+
 ### Somewhat Unruly Data Set
 
-The experimental design, while I think it makes sense for the questions we had, resulted in a somewhat unruly data set. **414 total 1-vs-1 selections**, with each selection being between two of five possible products. **On average, each product was presented in a selection 166 times** ( (414*2) / 5 ), but since options to present were chosen randomly, some products were presented slightly more and others less (from 155 times to 171 times). 
+The experimental design resulted in a somewhat unruly data set. **414 total 1-vs-1 selections**, with each selection being between two of five possible products. **On average, each product was presented in a selection 166 times** ( (414*2) / 5 ), but since options to present were chosen randomly, some products were presented slightly more and others less (from 155 times to 171 times).  **On average, any two products were presented as paired 'competitors' 41 times each**. (If N=5 is the total number of options, and M=414 is the total number of presentations, this is ( M / (N-1)! )).  However, random variation means that actually the number of presentations for each pairing ranged from 35 to 48.  
 
-**On average, any two products were presented as paired 'competitors' 41 times each**. (If N=5 is the total number of options, and M=414 is the total number of presentations, this is ( M / (N-1)! )).  
-
-However, random variation means that actually the number of presentations for each pairing ranged from 35 to 48.  
-
-You can see that even with 414 total preferences selected, we get relatively few preferences expressed for every individual pairing: For instance, Summon was only matched against Primo 48 times, and of those 18 times "About the Same/Can't Tell" was chosen, so a preference was only expressed 30 times. These are not huge numbers. 
+You can see that even with 414 total preferences selected, we get relatively few preferences expressed for every individual pairing: For instance, Summon was only matched against Primo 48 times, and of those 18 times "About the Same/Can't Tell" was chosen, so a preference was only expressed 30 times. This ends up being a fairly modest sample size. 
 
 ### The one-sample Z test
 
@@ -288,11 +255,11 @@ One way is to use a [one sample Z-test](http://www.statisticslectures.com/topics
 
 We can apply exactly this test to each individual pairing in our results, say all the times Summon was presented against Primo and a selection was made, to see if the preferences differ significantly from a 50/50 no preference. 
 
-But what do we do with the "Can't Decide/About the Same" choices? I decided that they give us no information about preferences between two products, they are essentially an 'abstention' in helping us determine user preferences, and should not be counted -- if we were to try and include them in analysis, I'm not sure what the 'null hypothesis' for the z-test should be.  
+But what do we do with the "Can't Decide/About the Same" choices? I decided that they give us no information about preferences between two products, they are essentially an 'abstention' in helping us determine user preferences, and should not be counted.  
 
 For overall rankings, we can look at all the times a given product, say Summon, was included in the choices and a selection was made, across all the different products it could be paired with, and look at overall what Summon's 'victory rate' is (proportion of times it was chosen).  We can use the one-sample z-test again to determine if its victory rate differs significantly from the 50/50 null hypothesis of no preference. 
 
-We did not come up with any way to actually test _overall_ comparisons between products --  Only an overall score for each product differing significantly (or not) from 50%, and each individual pairing. if one product wins 65% of the time overall, and another 58% of the time overall -- keep in mind we don't have any way to test this for significance. 
+We did not come up with any way to actually test _overall_ comparisons between products --  Only an overall score for each product differing significantly (or not) from 50%, and each individual pairing. 
 
 I am fairly inexperienced at statistical quantitative analysis (as are library technology departments in general, I think). Although I am happy with our approach here, there may be a better way to analyze these results; if a reader knows of one, please do share. 
 
@@ -300,7 +267,7 @@ I am fairly inexperienced at statistical quantitative analysis (as are library t
 
 #### Overall
 
-Again, please note that virtually none of these numbers were statistically significant. 
+Please note again that few of these numbers were statistically significant. 
 
 <table class="table table-striped">
   <tr>
@@ -598,9 +565,9 @@ We can look at a cross-tabulation of each individual possible pairing. Summon vs
           </tr>
 </table>
         
-As you can see, while 414 total responses seems like a good number, it results in a very small sample size for each pairing. For example, Summon was matched up against Primo only 48 times in which the user made a selection (rather than abandoning the window).  Of those 48 times, Summon was chosen 17 times, Primo 13 times, and 18 ties ("Can't Decide/About the Same").
+While 414 total responses may seem like a healthy number, it results in a very small sample size for each pairing. For example, Summon was matched up against Primo only 48 times in which the user made a selection.  Of those 48 times, Summon was chosen 17 times, Primo 13 times, and 18 ties ("Can't Decide/About the Same").
 
-How do we know if this is a significant indication of preference, or just random variation?  Again, we use the one-sample Z test with an alpha of 0.05, calculated for each pairing, with .5 as the null-hypothesis (no preference), and considering only active selections ("Can't Decide/About the Same" is not included in analysis). 
+How do we know if this is a significant indication of preference, or just random variation?  Again, we use the one-sample Z test with an alpha of 0.05, calculated for each pairing, with .5 as the null-hypothesis (no preference), and considering only active selections. 
 
 Using this analysis, the *only* pairings that achieve statistical significance are: 
 
@@ -617,32 +584,34 @@ I suspect the answer is a bit complex. While small sample size made it hard to s
 
 I think there's a larger issue though with the nature of the experiment. If used over time in production, some products may very well satisfy users better than others -- but when asked to express a preference for a small handful of searches in the artificial context of the experiment, users may not have the capability to adequately judge which products may be more helpful in actual use. I think this is quite possible, especially if users were not using their own current real research questions to test.  
 
-Some users, especially beginner/undergraduate users, may simply be unconcerned with relevance of results, "any 10 articles will do."  In a survey-based study receiving 523 responses at a 'mid-sized Midwestern university': "Only six students explicitly identified relevance as a reason a research resource was their favorite. In other words, only six students favored a resource for its ability to return sources relevant for their topic and/or assignment... That students valued quality over relevance indicates students may define research as meeting particular task criteria, rather than generating knowledge. For example, they may see good research as referencing five scholarly sources rather than conversing with topically relevant sources." (James P. Purdy. "Why first-year college students select online research resources as their favorite". First Monday 17(9). http://www.firstmonday.org/htbin/cgiwrap/bin/ojs/index.php/fm/article/view/4088/3289) 
+Some users, especially beginner/undergraduate users, may simply be unconcerned with relevance of results, being satisfied by nearly any list of results.  In a survey-based study receiving 523 responses at a 'mid-sized Midwestern university', James P. Purdy [8] reports:
 
+> "Only six students explicitly identified relevance as a reason a research resource was their favorite. In other words, only six students favored a resource for its ability to return sources relevant for their topic and/or assignment... That students valued quality over relevance indicates students may define research as meeting particular task criteria, rather than generating knowledge. For example, they may see good research as referencing five scholarly sources rather than conversing with topically relevant sources."   
+  
 
-If the findings in the Purdy study are generalizable, what this means for library practice is still unclear -- does that mean that the relevance/topical quality of results does not matter for our users and we need to pay no attention to it either -- or does it mean we need to care about it even though users don't consciously do so, and cannot rely on user self-reported evaluation to guide us?
+If the findings in the Purdy study are generalizable, what this means for library practice is still unclear -- does that mean that the relevance/topical quality of results does not matter for our users and we need to pay no attention to it either? Or does it mean that to maximize quality for our patrons, we need to care about factors that our users themselves don't, and can not rely on user's own evaluations to guide us?
 
 Librarians might possibly be more expert/capable at choosing the right queries to search and judging based on a few sample searches -- unfortunately, with only 64 preference selections from self-identified 'Library Staff', we don't think we have a large enough sample to look at the preferences of that demographic on their own.
 
-Despite these limitations (and those above in the 'Limitations' section), we can imagine there could surely be a product so bad that it would have had a significant negative preference. For an extreme example, we can imagine creating a 'product' which simply returned random citations from a list, unrelated to the query. Surely that would have performed poorly even this experiment.  
+Despite these limitations, we can imagine there could surely be a product so bad that it would have had a significant negative preference. For an extreme example, we can imagine creating a 'product' which simply returned random citations from a list, unrelated to the query. Surely that would have performed poorly even this experiment.   In retrospect, it would in fact have been quite interesting to include such a 'service' in the study as a control. 
 
-**That few significant preferences were demonstrated in this study, can, I think** be taken as at least _some_ evidence that all products tested (with the possible exception of scopus) **perform 'well enough' for supporting basic search usage scenarios across our population served.**  
+That few significant preferences were demonstrated in this study, can, I think be taken as at least _some_ evidence that all products tested (with the possible exception of scopus) perform 'well enough' for supporting basic search usage scenarios across our population served.
 
 ### Individual pairings
 
 While few of the individual pairing results rose to the level of statistical significance, possibly in part due to small sample size in each individual pairing, it is worth looking at them for trends suggestive of further research and possibly valid tendencies not captured with statistical significance. 
 
-**Scopus** 'lost' to every other product it was paired with -- and produces the only statistically significant pairings, losing to both EDS and Summon with statistical significance. 
+* **Scopus** 'lost' to every other product it was paired with -- and produces the only statistically significant pairings, losing to both EDS and Summon with statistical significance. 
 
-**EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with _every_ other product included!
+* **EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with _every_ other product included!
 
 Looking at the three 'discovery' products, they're fairly tightly clustered, although there are some trends. 
 
-**Primo** lost to every product it was paired with, although by fairly small not statistically significant margins. (Oddly, it lost by a much greater margin to EBSCO 'traditional' than it did to the other discovery services!). 
+* **Primo** lost to every product it was paired with, although by fairly small not statistically significant margins. (Oddly, it lost by a much greater margin to EBSCO 'traditional' than it did to the other discovery services!). 
 
-**Summon** won, but by a small and not statistically significant margin, against every product it was matched against -- _except_ EDS, where, in an amusing happenstance, it was an exact tie (14 vs. 14 with 7 ties). 
+* **Summon** won, but by a small and not statistically significant margin, against every product it was matched against -- _except_ EDS, where, in an amusing happenstance, it was an exact tie (14 vs. 14 with 7 ties). 
 
-**EDS** has very mixed success -- it beats Scopus with statistical significance, but Primo only by a very slim non-significant margin (16 to 14 with 8 ties); ties with Summond; and is beat by EBSCO 'traditional'.
+* **EDS** has very mixed success -- it beats Scopus with statistical significance, but Primo only by a very slim non-significant margin (16 to 14 with 8 ties); ties with Summond; and is beat by EBSCO 'traditional'.
 
 ### What criteria do participants use to judge?
 
@@ -739,19 +708,18 @@ EDS was by far the slowest of the 'discovery' solutions, and while its median re
 
 Primo performed somewhere in between Summon and EDS. 
 
-Of the non-discovery solutions, Scopus was quite fast, pretty much as fast as Summon.  EBSCOHost traditional API's speed will depend on exactly what EBSCO databases you choose to include. However with the set of around 40 we chose to include, EBSCOHost traditional was surprisingly slightly faster than EDS, perhaps because it did not require the multi-request auth process. EBSCOHost still had some pathologically slow outlying responses however. 
-
+Of the non-discovery solutions, Scopus's’s response time was comparable to Summons, while EBSCOHost traditional API’s performance will vary based on the number of types of EBSCO databases you choose to query.  However with the set of around 40 we chose to include, EBSCOHost traditional was surprisingly slightly faster than EDS, perhaps because it did not require the multi-layered authentication process. 
 
 ## Further research directions?
 
 All code used to do this experiment is open source and designed to be easily re-usable. Someone else -- if they could get access to all the products -- could do this experiment again to see if they get the same results, or change the configuration of the various products to see if that changes the results.  
 
-Although I'm interested in how configuration and limiting choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. 
-
-It might be somewhat more useful if you were able to limit the options considered to only two products, to make it easier to get a large enough sample size. 
+Although I'm interested in how configuration and limiting choices may have changed our results, I suspect a trial done much like this one -- with 5 or more products compared -- would probably still result in no significant preferences detected. It might be somewhat more useful if you were able to limit the options considered to only two products, to make it easier to get a large enough sample size. 
 
 Alternately, it might be useful to do a comparison _only_ with librarians participating -- it may be that patrons are just not able to predict their actual long-term preferences or benefits from an artificial experiment like this. As an example of a comparison using only subject-specialist librarians, see Bietila and Olson, "Designing an Evaluation Process
 for Resource Discovery Tools" in _Planning and Implementing Resource Discovery Tools in Academic Libraries_, IGI Global 2012. Or the slides from a NISO presentation by Bietila, available open access at: http://www.niso.org/news/events/2012/nisowebinars/discovery_and_delivery/
+
+If there were a way to creatively design the study to be more confident you were eliciting more realistic queries for actual real world research questions and research needs (including known-item searches), it would produce results one could be more confident in. It's not entirely clear how to do this, although making existing search tool results pages the exclusive entry point to a study instrument might be beneficial.  
 
 Whether focusing on subject experts or not, whether in an experiment similar to this one or not, libraries will continue to have a need to evaluate and compare discovery and article search products. And often, especially if you plan to use product API's with your own UI, it will be beneficial to focus on search results rather than presentation -- to compare in a normalized presentation (whether blinded or not), rather than using vendors' native interfaces with very different UI's. I hope the `bento_search` rails gem may prove useful to people in allowing rapid development of testing or prototyping environments for such examinations. 
 
@@ -763,13 +731,13 @@ One of the biggest barriers to do any kind of comparison between products is the
 
 ## Developer Review of Products
 
-Developers in the library sector know that library market vendor API quality can vary.  Often an API may look acceptable for your desired use cases from the marketting, documentation, or even an initial look at a live demo. But sometimes, when actually developing for your actual use cases, you can discover that an API is buggy, difficult to work with, or functionality incapable of your aims. 
+Developers in the library sector know that library market vendor API quality can vary.  Often an API may look acceptable for your desired use cases from the marketing, documentation, or even an initial look at a live demo. But sometimes, when actually developing for your actual use cases, you can discover that an API is buggy, difficult to work with, or functionality incapable of your aims. 
 
 The implementation of the blinded survey instrument required development of code against the product's APIs, and provided the opportunity to review those APIs for developer ease of use and functionality. The 'proof of concept' against the actual API's was perhaps equally as valuable as the study itself. 
 
 As few developers have the opportunity to compare these API's side by side, sharing what we've learned seems a valuable service. However, it should be kept in mind, that much like a book review, this API review is one developer's subjective opinion based on his perspectives and concerns and the information available to him. It also represents a single point in time for all these APIs, which may continue to develop and change.   
 
-One commality among all the products was documentation not as good as one would like.  While most products offered some documentation, the documentation tended to be sketchy and leave out important details (leaving out documentation of expected error response formats was particularly common). 
+One common thread among all products was the lack of documentation with the quality and completeness a developer would want.  Most products offered some level of documentation, but most was incomplete, leaving out important details related to error responses, input formats, or content limitations.
 
 Also, in general the "Discovery" products all offer some form of "limit to my libraries holdings" and "limit to items available in online fulltext", but I did not generally explore how well these worked in each product. The traditional A&I products (Scopus and EBSCOHost 'traditional') do not offer such features.  The Discovery products also, unlike the traditional A&I products, typically offer a did-you-mean/spellcheck feature, but I did not investigate the quality or ease of development use for this feature in any products. 
 
@@ -777,9 +745,9 @@ Also, in general the "Discovery" products all offer some form of "limit to my li
 
 This is not a discovery layer and lacks 'discovery' features, but the API is actually quite reasonable and easy to work with for what it is, as well as reasonably well documented. 
 
-In using EBSCO 'traditional' API, you are cross-searching a variety of EBSCO databases licensed to you.  Different EBSCO databases can use different controlled vocabularies for such values as format, and have more or less metadata (some may record 'peer reviewed' flag, others not). This is the root of many problems with lack of effective functionality using this API for this purpose. Nonetheless, even searching over most of our licensed databases at once, things tend to work out reasonably. 
+In using EBSCO 'traditional' API, you are cross-searching a variety of EBSCO databases licensed to you.  Different EBSCO databases can use different controlled vocabularies for such values as format, and metadata completeness may vary between databases.
 
-With API's that come bundled with licenses mostly used for native HTML app access, there is a worry that the API is an afterthought not fully supported -- especially for 'last generation' products like EBSCOHost (rather than EDS).  However, the EBSCO 'traditional' API seems fairly mature, and basic questions on the API through EBSCO's usual support mechanisms were generally answered satisfactorily. 
+With API's that come bundled with licenses mostly used for native HTML app access, there can sometimes be a worry that the API is an afterthought not fully supported -- especially for 'last generation' products like EBSCOHost (rather than EDS).  However, the EBSCO 'traditional' API seems fairly mature, and basic questions on the API through EBSCO's usual support mechanisms were generally answered satisfactorily. 
 
 #### Notable Features
 
@@ -792,7 +760,7 @@ With API's that come bundled with licenses mostly used for native HTML app acces
 
 #### Limitations or Issues
 
-* You need to use admin interface to make sure all your licensed databases are available for searching in your EBSCOHost api profile. As new databases become available, you may have to update.  
+* Licensed databases are not automatically available for searching through the API.  Rather, one needs to explicitly configure each database for inclusion in your EBSCOHost API profile. 
 * If a database formerly available becomes unavailable (due to licensing or platform changes), and your API requests still ask to search it -- it's a fatal error and no response is returned, even from remaining available databases. 
 * The fact that you are cross-searching multiple databases can lead to some data normalization issues. 
   * Content Types are not particularly consistent across databases, making things, well, inconsistent, and hard to figure out type for say generating an OpenURL or exporting a citation.  
@@ -804,7 +772,7 @@ With API's that come bundled with licenses mostly used for native HTML app acces
 
 #### API Authentication
 
-* account/password passed in ordinary URL query param, certainly easy to implement (if not particularly secure). 
+* account/password passed in ordinary URL query parameter.
 
 #### End-user authentication
 
@@ -812,7 +780,7 @@ As an ordinarily A&I type database, we assume we are not allowed to show results
 
 #### Documentation
 
-There actually is a fair amount of documentation on the public web, although it's scattered in several places and can be hard to locate. Quite a bit of documentation in the EBSCO 'support' knowledge base, don't forget to look there.
+There actually is a fair amount of documentation on the public web, although it's scattered in several places and can be hard to locate. EBSCO also maintains an extensive support knowledge base that includes entries on API issues as well. 
 
 As typical for all these products, response formats are fairly undocumented and need to be reverse-engineered, but a DTD is provided for the XML response (if you can find it: http://support.ebsco.com/eit/docs/DTD_EIT_WS_searchResponse.zip), which is better than nothing, although insufficient at documenting semantics. 
 
@@ -829,9 +797,10 @@ Some notably useful pages:
 
 ### EDS
 
-As the EBSCOHost traditional API was fairly decent, I was somewhat surprised to see how difficult to work with the EDS API, from the same vendor, was. It is a very odd API.  It does offer some 'discovery' functions missing from EBSCOHost traditional, but also is missing the granular citation metadata in the response, and it's very difficult to work with its authentication model. 
+The EDS API presented a number of challenges, chief of which, was dealing with authentication. While EDS is provided by the same vendor as the older more basic EBSCOHost 'traditional' API, EDS was in many ways more challenging to work with than EBSCOHost.  The EDS API does offer some of the 'discovery' functions missing from EBSCOHost traditional API, but it lacks the granular citation metadata found in the EBSCOHost Traditional API product.  
 
-In general, the API seems to be just barely/exactly enough to implement a near identical clone to the EDS API (and not even this without some difficulty), but is not flexible or powerful enough to do much else without lots of challenges. 
+
+In general, the API seems to be just barely/exactly enough to implement a near identical clone to the out-of-the-box EDS interface (and not even this without some difficulty). 
 
 #### Notable features
 
@@ -841,37 +810,36 @@ In general, the API seems to be just barely/exactly enough to implement a near i
  * There is a convenient multi-parameter query style that would be useful for sending multi-field queries entered by users in separate text boxes. 
  * A 'peer reviewed' limit is available. 
 * There is a query-in-context highlighting function, but it's very cumbersome to use, and only applies to certain metadata fields (google-style fulltext snippets not available).
-* Faceting is available, including on content type and langauge. Did not investigate extensively. 
+* Faceting is available, including on content type and langauge, but I did not investigate extensively.  
 
 
 #### Limitations or Issues
 
-* See API authentication section below, significantly difficult to work with.
-* The citation metadata (journal name, volume, issue etc) are offered _only_ in a single text field meant to be displayed directly to user. There are no granular metadata elements allowing OpenURL generation or citation export. (You can configure, via EBSCO admin interface, the response to include a pre-formed OpenURL, so all is not lost). 
-  * Even worse, this single text field actually _isn't_ directly displayable to the end-user, it includes weird and undocumented XML-like tags which must be stripped. 
-  * And the single text field can sometimes be missing from the response for a given record, even when the API is providing an OpenURL showing that the underlying platform does know some citation details. 
-* Other data elements that are available for facets or limits are not in fact available in the API response for an individual element at all. A notable example would be the language of the article, something you'd likely want to tell the user. The per-record API response is _very_ limited, there just isnt' that much information there.
-* What data elements are there often have undocumented psuedo-XML tags in them of unclear use, that need to be stripped out before making use of the data value. 
+* See API authentication section below, there are some significant challenges. 
+* The citation metadata (journal name, volume, issue etc) are offered _only_ in a single text field meant to be displayed directly to user. There are no granular metadata elements allowing OpenURL generation or citation export, though you can configure the API to provide a pre-configured OpenURL in the response.
+  * Oddly, this single text field provided in API response isn't an end-user presentable literal string, but includes undocumented XML-like tags which must be stripped before presentation to end users. . 
+  * This single text field of citation information is missing from some items, even when the underlying platform is able to provide an accurate OpenURL for the item. 
+* Other data elements that are available for facets or limits are not available in the API response for an individual element. A notable example would be the language of the article. The per-record API response is very limited.
 * Data tends to be HTML, with presentational HTML tags like `<b>` and `<i>` as well as HTML character entitles. But this is somewhat inconsistent, and undocumented. 
-* While EDS does offer better 'content type' limiting and labelling than EBSCOHost traditional, the content type vocabulary used applies to _container_ of record rather than record itself -- "Academic Journal" rather than "Journal Article" -- which is a somewhat odd UI. Additionally, the terms used for labelling records in results don't exactly match the terms you need to use for limiting (singular vs plural), which can make coding a flexible UI more challenging than it should be. 
-* If you do a 'date descending' sort, you'll see so much bad data (articles claiming to be published in 2099 for instance), that this sort order is fairly useless. 
-* Facetting API does not allow exclusionary facets (eg exclude "Newspaper Articles")
+* While EDS does offer better 'content type' limiting and labeling than the EBSCOHost traditional API, the content type vocabulary used applies to _container_ of record rather than record itself -- "Academic Journal" rather than "Journal Article" -- which is a somewhat odd UI. Additionally, the terms used for labeling records in results don't exactly match the terms you need to use for limiting (singular vs plural), which can make coding a flexible UI more challenging than it should be. 
+* Date sorting reveals metadata inconsistencies limiting the usefulness of this feature
+* The facetting API does not allow exclusionary facets (eg exclude "Newspaper Articles")
 
 #### API Authentication
 
-The EDS API's process to have a client authenticate and use it is quite complex, and a significant challenge to writing client software. 
+The EDS API's authentication process is quite complex, and a significant challenge to writing client software. 
 
-* You first need to make an HTTP request to get an auth token, which you send with all requests.  You are expected to cache this auth token for future requests. Since the auth token will expire, you need to check all responses for an auth token expired error, and get a new auth token if neccesary. 
+* Making an HTTP request to receive an authentication token.  This token will need to be repurposed for all subsequent requests to the API.  Since this token will expire after a period of inactivity, all responses need to be evaluated for token expiration errors.  If a token expires, the client must re-authenticate and request a new one.  
 
-* Once you have a valid auth token, you need to make an additional separate HTTP to get a per-session token (end-user session).  You are expected to re-use this session token for future queries from the same end-user session. But since web apps can find it difficult to track end-user sessions effectively -- and a given user session in an app of this sort may only do one or two queries -- it can be more convenient to just ask for a new session token every time you want to make a search request.  
+* Using the authentication token, the API requires a second HTTP request to generate a per-session token.  The API requires the session token to be utilized for all future API interactions for a particular session. Since it can be difficult to track end-user sessions effectively within a web application, and even if you did so a given session in an app of this type may only make one or two queries, it might make more sense to initiate a new session for every query, despite the significant performance cost of doing so.   
 
-  * EBSCO's explanation for this session token is that some of the underlying databases have licensed connection limits, so they need to keep track of how many sessions are currently accessing. However, there's no self-service way to tell which underlying data sources may have connection limits, or what those connection limits are. There's no way to exclude those sources from your search in EDS anyway. It's unclear what will actually happen if the connection limits are exceeded, nature of the error message returned, if any. 
+  * EBSCO's explanation for this session token is that some of the underlying databases have licensed connection limits, so they need to keep track of how many sessions are currently accessing. However, there's no self-service way to tell which underlying data sources may have connection limits, or what those connection limits are. It's unclear what will actually happen if the connection limits are exceeded, nature of the error message returned, if any. 
   
-This cumbersome authentication/setup process significantly adds to the difficulty of writing a client for the EDS API.  It also degrades the effective response time to deliver results to the end-user, as in some cases several separate HTTP requests have to be made -- and each HTTP request can have a one second or more response time. (In worst case, four separate HTTP requests.  1) Make a search request using existing auth and session tokens; get a response telling you the auth token has expired. 2) Ask for a new auth token. 3) Ask for a new session token. 4) Re-issue search request.) 
+This cumbersome authentication/setup process significantly adds to the difficulty of writing a client for the EDS API.  It also degrades the effective response time to deliver results to the end-user, as in some cases several separate HTTP requests have to be made -- and each HTTP request can have a one second or more response time. 
 
 #### End-user authentication
 
-EDS does allow use with both authenticated end-users, as well as public/guest end users.  If you tell the API you are using public/guest access, it has a rather novel way of accomodating this.  Other 'discovery' products typically will transparently hide some results from the result set for 'guest' access. EDS also suppresses some results from the result set, but not transparently -- instead, in a page of 10 results, several (or more) of them may be replaced by placeholder "Can not show this result to guest user" blocks. I am not certain if this results in a better or worse UI than what the other products do, there are some arguments both ways.   
+EDS does allow use with both authenticated end-users, as well as public/guest end users.  If you tell the API you are using public/guest access, it has a rather novel way of accommodating this.  Other 'discovery' products typically will transparently hide some results from the result set for 'guest' access. EDS also suppresses some results from the result set, but not transparently -- instead, in a page of 10 results, several (or more) of them may be replaced by placeholder "Can not show this result to guest user" blocks. I am not certain if this results in a better or worse UI than what the other products do, there are some arguments both ways.   
 
 #### Documentation
 
@@ -894,17 +862,17 @@ A decent if not great API, which allows you to do what's needed, but getting per
 * Does support facets, including creator, language, format, subject, pub year, db source, journal title
 * Does supply abstracts
 * Does have a 'peer reviewed only' limit. 
-* Custom relevancy rankings based on discipline and individual status (faculty, student, etc) are avail, although I did not explore.  
-* a 'highlight' feature is avail, but is poorly documented and difficult to use, seems to only highlight certain metadata fields, not provide google-style highlighted fulltext snippets.
+* Custom relevancy rankings based on discipline and individual status (faculty, student, etc) are available. I did not explore this feature so can offer no evaluation of it.    
+* A 'highlight' feature is available, but is poorly documented and difficult to use. This feature seems to only highlight certain metadata fields, and does not provide google-style highlighted fulltext snippets.
 
 
 
 #### Limitations or Issues
 
-* Individual record response elements have many sections with same data presented many different ways, not clear where the best place to pull data out of is, response format not well documented.  This presentation of the data in several different formats may be powerful supporting different use cases, but it's confusing and unclear how to use. 
-* Error messages are sometimes XML and other times HTTP status codes with HTML response bodies.  Expected error response specs not documented. 
-* Ran into at least one strange edge case bug, searching for a long phrase with a question mark in it resulted in strange error message. Possibly due to undocumented escape requirements of query input?
-* multiple format/genre vocabularies are used in response, not documented what they mean or what possible the values are. 
+* Individual record response elements have many sections with similar data presented in different ways, without much documentation of the different response elements.  This makes it difficult to determine which response element will provide the best, most consistent data for a given use. These varying presentations of certain elements may well powerfully support complex use cases, but lack of documentation is a barrier to making such use.  
+* Error messages are sometimes XML and other times HTTP status codes with HTML response bodies.  Expected error response specifications not documented. 
+* During the survey, we ran into at least one strange edge case bug, searching for a long phrase with a question mark in it resulted in strange error message. Possibly due to undocumented escape requirements of query input?
+* Multiple format/genre vocabularies are used in responses, but there is inadequate documentation defining expected values or semantics. 
 * Queries with very many terms can have exceptionally long response times. Phrase queries with very many terms seem to sometimes return false negatives. 
 * While granular citation metadata is provided, it can sometimes be incomplete for certain records and not sufficient to generate a working OpenURL. 
 * There is a management interface to specify which PrimoCentral "collections" you want to include in your search. However, these collections are constantly changing, and I believe one must manually stay on top of changes to update one's configuration to be searching all that is available. 
@@ -934,7 +902,7 @@ A fairly reasonably designed, full-featured API for the basic search functions y
 
 #### Notable Features
 
-* Uses fielded and boolean search language equivalent to Scopus native interface, making sophisticated searches possible (whether or not you expose the complete syntax to the user; we did not). 
+* Uses fielded and boolean search language equivalent to Scopus native interface, making sophisticated searches possible.
 * An incredibly full set of search indexes, letting you craft very precise queries. 
 * Does have sufficient granular citation metadata (volume, issue, start page, issn, etc) to build an OpenURL, or export a citation (except only first author). 
 
@@ -945,13 +913,13 @@ A fairly reasonably designed, full-featured API for the basic search functions y
 * Only the first author of a multi-author citation seems to be available from the API, even though documentation suggests otherwise.  
 * Sorting either doesn't work at all, or doesn’t work as documented, had difficulty getting sort other than by relevance to work.  
 * No abstracts provided (see ToS issues below).
-* Terrible way of responding to a query that produces zero hits, with an error message rather than simply reporting 0 hits. Undocumented, so have to reverse-engineer and guess as to specification. 
-* Unlike the 'discovery' products, no query-in-context search term highlighting whatsoever. 
+* Queries that produces zero hits produce with an error message rather than simply reporting 0 hits. This was undocumented, and discovered through 'reverse engineering', that is notification behavior in practice. 
+* Unlike the 'discovery' products, no query-in-context search term highlighting. 
 
 #### API authentication
 
-* Scopus requires your API client IP address to be registered for auth, as well as an api key sent in an HTTP header.  (why both?)
-* API key sent in headers makes debugging or exploration of API in a browser window difficult. Other products provide a 'console' app of some sort to work around this, but Scopus does not. 
+* Scopus requires your API client IP address to be registered, and an API key additionally sent in an HTTP header. 
+* The API key sent in the HTTP headers makes debugging or exploration of API in a browser window difficult. Other products provide a 'console' app of some sort to work around this, but Scopus does not. 
 
 #### End-user authentication
 
@@ -969,22 +937,22 @@ Decent documentation on the public web, but is occasionally out of date or lacki
 The Scopus API terms of service (under 'federated search' case at http://www.developers.elsevier.com/devcms/content-policies) are unusually limiting. 
 
 * Link back to Scopus is _required_ with presentation of results.  
-* Displaying abstracts or citation counts in interface is prohibited. Lack of abstracts is particularly problematic.
+* Displaying abstracts or citation counts in an interface is prohibited. Lack of abstracts may be particularly problematic for many use cases. 
 
 ### Summon
 
-SerialSolutions tells us that their default out-of-the-box Summon interface uses the exact same API available to customers to power it's functionality. This kind of "dog fooding" is probably unique among the products reviewed, and it pays off -- while not perfect, the Summon API is by far the easiest to work with, most consistent, and most flexibly powerful of the products reviewed.  It's possibly the only API reviewed that approaches the kind of rational consistent design that you'd expect from a technically competent non-library-sector vendor.
+SerialSolutions tells us that their default out-of-the-box Summon interface uses the exact same API available to customers to power it's functionality. This kind of "dog fooding" is probably unique among the products reviewed, and it pays off.  While not perfect, the Summon API is by far the easiest to work with, most consistent, and most flexibly powerful of the products reviewed.  
 
 #### Notable features
 
 * Sophisticated query syntax, which is actually suitable for exposing directly to end-users if so desired, as it supports google-style list-of-terms-and-phrases with reasonable semantics. Also supports fielded queries, and at least some level of boolean expressions.  
-  * However, the search syntax isn't documented. It appears to be based on solr-lucene query syntax, but with enhancements. Lack of documentation can make things tricky when you are machine-generating queries, to be sure you are escaping what needs to be escaped and in general that your machine-generated query has the intended semantics. 
-* Full featured facetting API, including applying 'AND' (conjunction), 'OR' (union) and 'NOT' (exclusive) facet limits.  
-* Large list of search indexes you can target (and combine), useful for supporting finely targetted queries. 
-  * However, in some cases missing combined/aggregated indexes you'd want, like an "any kind of subject" index as opposed to only "subject geographical", "subject topical", etc. Also insufficient documentation as to semantics of search indexes, beyond a one phrase label. 
+  * However, the search syntax isn't documented. It appears to be based on solr-lucene query syntax, but with enhancements. Lack of documentation can make things tricky when you are machine-generating queries; it can be challening to be sure you are escaping what needs to be escaped, and in general that your machine-generated query has the intended semantics. 
+* Full featured faceting API, including applying 'AND' (conjunction), 'OR' (union) and 'NOT' (exclusive) facet limits.  
+* Large list of search indexes you can target and combine. This is useful for supporting finely targetted queries.  
+  * In some cases combined/aggregated indexes you might want are missing, such as an "any kind of subject" index as opposed to only "subject geographical", "subject topical", etc. Also, there is insufficient documentation as to semantics of search indexes, beyond a one phrase label. 
 * Both a "just scholarly" and a "just peer-reviewed" limit (not sure what the distinction is). 
 * A good vocabulary for 'content type' that matches my impression of what would be useful to users. 
-  * However, items are not infrequently mis-classified, (eg, something classified as a "Journal Article" that is from a mass market publication nobody would consider a 'journal'). 
+  * However, mis-classification of item format is noticable, for example something classified as a "Journal Article" that is from a mass market publication nobody would consider a 'journal'. 
 * Straightforward response format, with sufficiently granular data elements to generate OpenURLs or export citations, and in general has what you'd expect it to have, in reasonable places. 
 * The best query-in-context search term highlighting of any product reviewed, with google-style highlighted snippets from fulltext, that works quite well.
 * An interesting 'direct link' feature which aims to provide a URL to send the user directly to institutionally-licensed fulltext for an item, avoiding the OpenURL resolver where possible. I believe supporting multiple content providers, not just those owned by Serials Solutions parent company. I did not investigate this, but if it works well it could be a very useful feature. In limited experimentation, it did sometimes succesfully link even to public-access pre-print copies on the web, which is a pretty neat feature. (Linking sources can be ranked and turned off in config).   
@@ -994,15 +962,15 @@ SerialSolutions tells us that their default out-of-the-box Summon interface uses
 
 #### Limitations or Issues
 
-* While API returns a 'language' code labelling individual responses, it is frequently empty or labelled as English even for non-English articles. 
+* While API returns a 'language' code labeling individual responses, it is frequently empty or labeled as English even for non-English articles. 
 * Had some problems applying multiple exclusive ("NOT") facet limits, not sure if encountering a bug in API or if I was doing something wrong (which could still be under-documentation).
-* While there are a variety of facet groupings available, lacks clear documentation of what facet groups are available, you just have to do a request and see what you get, or look at an out-of-the-box interface and see what it offers. 
+* While there are a variety of facet groupings available, there is a lack of clear documentation of what facet groups are available. The developer has to reverse engineer from observed responses.  
 
 #### API authentication
 
-You need to authenticate your API requests using a fairly complex (but technically secure and competent) algorithm involving cryptographic signatures.  The requirements are actually quite similar to AWS API (although not neccesarily identical), if you've used that. 
+You need to authenticate your API requests using a fairly complex (but technically secure and competent) algorithm involving cryptographic signatures.  The requirements are actually quite similar to AWS API (although not necesarily identical), if you've used that. 
 
-It would be a bit challenging to implement from scratch (although not impossible for the experienced programmer), but fortunately a library is provided in ruby (and other languages) to wrap all API access. I did not want to use the API for all requests, I prefer to stay closer to the HTTP metal and not use an extra layer of abstraction (with fairly spotty documentation) limiting my flexiblity. But again fortunately, the ruby version was written such that I could easily instantiate and call the right classes to use the request-signing parts of the ruby gem alone in my own code, without using the rest of the gem. 
+Implementing a client complying with Summon's authentication method would be a  a bit challenging to implement from scratch, but a libraries are provided in several languages to wrap API access, including authentication. I did not want to use the API for all requests, I prefer to stay closer to the HTTP metal and not use an extra layer of abstraction (with fairly spotty documentation) limiting my flexibility. Fortunately, the provided ruby implementation of a Summon API client was written such that I could easily instantiate and call the right classes to use the request-signing parts of the ruby gem alone in my own code, without using the rest of the gem. 
 
 #### End-user authentication
 
@@ -1010,7 +978,7 @@ As is typical for the 'discovery' products, you can provide access both to authe
 
 #### Documentation
 
-Reasonably decent documentation, but not great. As with most products, missing sufficient documentation of response format semantics and various controlled vocabularies. Particularly missed are sufficient documentation of the facet groupings and search field indexes. 
+The API is reasonably documented, though it could be better in many places.   As with the other products investigated, we could use more documentation of response format semantics and various controlled vocabularies. Particularly missed are sufficient documentation of the facet groupings and search field indexes. 
 
 Docs are on the web, public access, which is great. 
 
@@ -1020,7 +988,44 @@ Docs are on the web, public access, which is great.
 
 ## Conclusion
 
-[i have no idea. Do I need one? I think I've said enough at this point!]
+Many of us working with library technology would like to incorporate more user-centered assessment into our planning and decision-making process, including quantatitive investigations where appropriate. One barrier is how overwhelming it can be to "get it right", worry that it's not worth doing unless it's done perfectly with absolutely minimized limitations. 
+
+I do think it's important to spend some time understanding the limitations of any research we do (and any research has limitations). But I think it's better to do _more_ assessment even with limitations, than to do minimal assessment out of desire to only do perfect assessment.  If you are aware of the limitations of your conclusions, than almost any assessment can give you some additional information to make better decisions than you would have without it. And time you incorporate assessment into your planning, you gain experience to do it better (and more efficiently) next time. 
+
+On those grounds, I consider our research here to be a success. We made a foray into incorporating user-centered assessment into our planning, becoming more comfortable with that process and increasing our experience and ability at it. Our research had some limitations we knew about in advance, but decided the research could be valuable despite them, and the time it would take to try and minimize them would not have proportional benefit to our findings. Our research had other limitations we only realized by doing it -- and other things we believed would be limitations, but turned out not to matter! 
+
+The way this research project allowed us to become familiar with the various projects being investigated--both on a technical and a functional level--was also invaluable in helping us to be more comfortable in our decision-making involving some potentially expensive purchases and projects.  The technical implementation aspects of the study were intentionally designed to serve as a proof-of-concept of one possible production implementation path, and an opportunity for technical review of the various products.  I consider this aspect a complete success, and will definitely try to find opportunities in the future to efficiently undertake that kind of evaluation as part of plannig processes -- I think it's absolutely vital to get full evaluation/trial access to expensive products being considered for licensing, and to find ways to take advantage of that trial access for in-depth technical evaluation, not just a quick surface-level perusal.   
+
+The actual conclusions we are able to make from the quantitative empirical portion of the study are limited, with few statistically significant differences between products demonstrated. In the absence of such demonstrated preferences, we think this is some reason to believe that end-user's own preferences with regard to core search functionality truly will not significantly differ between these products, and we can focus mainly on other factors in our decision-making. 
+
+We are considering moving ahead with an initial deployment based on a product we can use with our already existing licenses, such as the EBSCOHost 'traditional' API.  Our ability to quickly pivot to another article search results provider increases our confidence in this approach. The 'bento style' interface choice is part of what makes this kind of switch-out feasible, especially powered by the 'bento_search' ruby gem which aims to support this kind of switch-out. We will try to set expectations at the start of implementation to allow for such a quick switch-out, based on librarian and user response to the initial implementation in real-world practice.  Our initial implementation plan will include the commitment to do more assessment of how well the service is working within several months of initial roll out.  
+
+## Notes
+
+[1] http://bibwild.wordpress.com/2012/10/02/article-search-improvement-strategy/
+
+[2]  Only after our study was well underway did we notice that Microsoft is promoting a very similarly designed side-by-side comparison for Bing marketting purposes: http://www.bingiton.com .
+
+[3] For example: Asher, Duke, and Wilson. "Paths of Discovery:  Comparing the Search effectiveness of EBSCO Discovery Service, Summon, Google Scholar, and Conventional Library Resources". Forthcoming in College & Research Libraries, Anticipated Publication Date: July 2013, online pre-print available now: http://crl.acrl.org/content/early/2012/05/07/crl-374.short. 
+
+[4] http://github.com/jrochkind/bento_search
+
+[5] https://github.com/jrochkind/bento_battle/tree/jhu-study-10Sep2012
+
+[6] https://github.com/jrochkind/bento_battle/tree/jhu-study-17Sep2012
+
+[7] https://github.com/jrochkind/bento_battle/blob/jhu-study-10Sep2012/config/ebsco_dbs.rb
+
+[8] James P. Purdy. "Why first-year college students select online research resources as their favorite". First Monday 17(9). http://www.firstmonday.org/htbin/cgiwrap/bin/ojs/index.php/fm/article/view/4088/3289) 
+
+## Disclosure
+
+Participating vendors were given the opportunity to review a pre-print draft of this article and provide feedback to the author. Additionally, vendors were invited to submit public comments on the article.   
+
+## About the Author
+
+Jonathan Rochkind is a software engineer at Johns Hopkins libraries, focusing on the libraries' user-facing web presence.  He blogs professionally at http://bibwild.wordpress.com.  Library-focused open source projects in which he is a committer and has made significant contributions include [Umlaut](https://github.com/team-umlaut/umlaut), [Blacklight](https://github.com/projectblacklight/blacklight), and [Xerxes](http://code.google.com/p/xerxes-portal/). He can be reached at rochkind at jhu edu. 
+
 
 ## Acknowledgements
 
