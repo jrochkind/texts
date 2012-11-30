@@ -33,7 +33,7 @@ Others before us have done article search or discovery product comparisons where
 
 ## Products included in Study
 
-In order to be included in our blinded study, a product needed to have a sufficient API for the blinded instrument, which are also essentially the same features as a 'bento style' implementation.  
+In order to be included in our blinded study, a product needed to have a sufficient API for the blinded instrument, which are also essentially the same features required for a 'bento style' implementation.  
 
 While we decided for purposes of the study instrument not to include links from articles to full text, a production implementation would need a way to link to full text and/or to a local link resolver. We decided to only include services in our evaluation that could support such linking. 
 
