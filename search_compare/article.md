@@ -225,11 +225,11 @@ However, there are also some limitations to the validity of even what we tried t
 
 Participants, in the artificial environment of our experiment, may not express preferences that match what their real world preferences would be. 
 
-When I myself was experimenting with the evaluation tool, I found that if I just entered a hypothetical query, I really had no way to evaluate the results. I needed to enter a query that was an _actual research question_ I had, where I actually wanted answers. Then I was able to know which set of results was better. (This issue does not apply to known-item searches, where either the item you are looking for is there at the top of the list, or it isn't). 
+When I myself was experimenting with the evaluation tool, I found that if I just entered a hypothetical query, I really had no way to evaluate the results. I needed to enter a query that was an _actual research question_ I had, where I actually wanted answers. Then I was able to know which set of results was better. 
 
 However, when observing others using the evaluation tool, I observed many entering just the sort of hypothetical sample queries that I think are hard to actually evaluate realistically. We tried to include links from existing tools to find articles, to capture participants in the middle of the research process with actual queries -- but we did not track what portion of participation came via these avenues. 
 
-Looking through the queries used by participant, there seem to be very few 'known item' searches (known title/author), even though we know from user feedback users want to do such searches. So the study may not adequately cover this use case. 
+This issue does not apply to known-item searches, where either the item you are looking for is there at the top of the list, or it isn't. Looking through the queries entered by participants, there seem to be very few 'known item' searches (known title/author), even though we know from user feedback users want to do such searches. So the study may not adequately cover this use case. 
 
 ## Findings
 
