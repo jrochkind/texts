@@ -219,7 +219,9 @@ Any experimental design has limitations: both things not being studied and poten
 
 * We do not know _why_ participants preferred one tool to another, or if different participants had different reasons at different times. Although it would be nice to know more details about what users want in a search tool, answering this question was not a goal of this research. 
 
-A good experimental design tries to control as much as possible, and isolates a very specific phenomenon to be studied. We tried to do this, focusing on the usage pattern/style we were prioritizing:  User preferences between products, for a basic, simple, article search functionality.   
+A good experimental design tries to control as much as possible, and isolates a very specific phenomenon to be studied. We tried to do this, focusing on the usage pattern/style we were prioritizing:  User preferences between products, for a basic, simple, article search functionality. 
+And we wanted to discover which product, of products as they actually exist available to us now, our users would
+prefer.  We tried to design an experiment to efficiently answer this question. 
 
 However, there are also some limitations to the validity of even what we tried to measure:
 
