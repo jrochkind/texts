@@ -241,7 +241,7 @@ Our complete data set from is publically available at: http://jhir.library.jhu.e
 
 The experimental design resulted in a somewhat unruly data set. **414 total 1-vs-1 selections**, with each selection being between two of five possible products. **On average, each product was presented in a selection 166 times** ( (414*2) / 5 ), but since options to present were chosen randomly, some products were presented slightly more and others less (from 155 times to 171 times).  **On average, any two products were presented as paired 'competitors' 41 times each**. (If N=5 is the total number of options, and M=414 is the total number of presentations, this is ( M / (N-1)! )).  However, random variation means that actually the number of presentations for each pairing ranged from 35 to 48.  
 
-You can see that even with 414 total preferences selected, we get relatively few preferences expressed for every individual pairing: For instance, Summon was only matched against Primo 48 times, and of those 18 times "About the Same/Can't Tell" was chosen, so a preference was only expressed 30 times. This ends up being a fairly modest sample size. 
+You can see that even with 414 total preferences selected, we get relatively few preferences expressed for any given individual pairing: For instance, Summon was only matched against Primo 48 times, and of those 18 times "About the Same/Can't Tell" was chosen, so a preference was only expressed 30 times. This ends up being a fairly modest sample size. 
 
 ### The one-sample Z test
 
