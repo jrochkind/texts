@@ -328,7 +328,7 @@ Each row was analyzed with a one-sample z-test, alpha of 0.05, null hypothesis o
 
 **Only scopus differs significantly from the 50/50 no preference** (with Scopus being less preferred compared to alternatives).  All the other rows are essentially statistically non-distinguishable from a straight 50/50.  (**Summon does get close** to being significantly different than 50/50 in the positive direction; if *one* more Summon choice had been received, and no more anti-Summon choices, it would have crossed into statistical significance).
 
-In order to get more info, we have to go down into individual pairings. Okay, Scopus is significantly unliked in general, but in particular is it less preferred than some alternatives, while no less preferred (or even more preferred) than others?
+In order to look more deeply, we have to look at individual pairings: Okay, Scopus is significantly unliked in general, but in particular is it less preferred than some alternatives, while no less preferred (or even more preferred) than others?
 
 #### Individual pairings
 
