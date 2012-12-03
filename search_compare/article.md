@@ -183,7 +183,7 @@ We had an _optional_ area for participants to identify their affiliated Hopkins 
 <tr><td>Carey Business School - CBS</td><td>17 <td>4%</td></tr>
 <tr><td>School of Medicine - SoM</td><td> 14 <td>3%</td></tr>
 <tr><td>Advanced Academic Programs - APP</td><td> 8 <td>2%</td></tr>
-<tr><td>Peabody Institute</td><td>	5 <td>1%</td></tr>
+<tr><td>Peabody Institute</td><td> 5 <td>1%</td></tr>
 <tr><td>Bloomberg School of Public Health - BSPH</td><td>3<td>1%</td></tr>
 <tr><td>Engineering for Professionals - EP</td><td>1 <td>0%</td></tr>
 <tr><td>School of Education - SoE</td><td> 	1 <td>0%</td></tr>
@@ -605,7 +605,7 @@ While few of the individual pairing results rose to the level of statistical sig
 
 * **Scopus** 'lost' to every other product it was paired with -- and produces the only statistically significant pairings, losing to both EDS and Summon with statistical significance. 
 
-* **EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with _every_ other product included!
+* **EBSCO 'traditional' api**, the other 'traditional' (rather than 'next generation discovery') product, does surprisingly well, holding its own -- winning (although by a slight and not statistically significant amount) when matched with every other product but for Summon. 
 
 Looking at the three 'discovery' products, they're fairly tightly clustered, although there are some trends. 
 
@@ -613,7 +613,7 @@ Looking at the three 'discovery' products, they're fairly tightly clustered, alt
 
 * **Summon** won, but by a small and not statistically significant margin, against every product it was matched against -- _except_ EDS, where, in an amusing happenstance, it was an exact tie (14 vs. 14 with 7 ties). 
 
-* **EDS** has very mixed success -- it beats Scopus with statistical significance, but Primo only by a very slim non-significant margin (16 to 14 with 8 ties); ties with Summond; and is beat by EBSCO 'traditional'.
+* **EDS** had mixed success -- it beats Scopus with statistical significance, but Primo only by a very slim non-significant margin (16 to 14 with 8 ties); ties with Summond; and is beat by EBSCO 'traditional'.
 
 ### What criteria do participants use to judge?
 
